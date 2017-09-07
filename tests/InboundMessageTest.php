@@ -118,7 +118,7 @@ class InboundMessageTest extends TestCase
         $this->assertEquals($this->message->headers->get('Received-SPF'), 'Pass (sender SPF authorized)');
         $this->assertEquals($this->message->headers->get('X-Spam-Score'), '-0.1');
         $this->assertEquals($this->message->headers->get('X-Spam-Status'), 'No');
-        $this->assertEquals($this->message->headers->get('X-Spam-Tests'),  'DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,SPF_PASS');
+        $this->assertEquals($this->message->headers->get('X-Spam-Tests'), 'DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,SPF_PASS');
         $this->assertEquals($this->message->headers->get('X-Spam-Checker-Version'), 'SpamAssassin 3.3.1 (2010-03-16) onrs-ord-pm-inbound1.wildbit.com');
     }
 
