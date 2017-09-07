@@ -48,7 +48,7 @@
   "Headers": [
     {
       "Name": "X-Spam-Checker-Version",
-      "Value": "SpamAssassin 3.3.1 (2010-03-16) onrs-ord-pm-inbound1.wildbit.com"
+      "Value": "SpamAssassin 3.3.1"
     },
     {
       "Name": "X-Spam-Status",
@@ -60,7 +60,7 @@
     },
     {
       "Name": "X-Spam-Tests",
-      "Value": "DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,SPF_PASS"
+      "Value": "DKIM_SIGNED,DKIM_VALID,SPF_PASS"
     },
     {
       "Name": "Received-SPF",

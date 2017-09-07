@@ -4,11 +4,41 @@ namespace Heyhoo\Postmark;
 
 class Contact
 {
+    /**
+     * E-mail address of the contact.
+     *
+     * @var string
+     */
     public $email;
+
+    /**
+     * Name of the contact,
+     *
+     * @var string
+     */
     public $name;
+
+    /**
+     * Mailbox hash.
+     *
+     * @var string
+     */
     public $mailboxHash;
+
+    /**
+     * Full address of the contact (i.e. John Doe <john@example.com>).
+     *
+     * @var string
+     */
     public $full;
 
+    /**
+     * Create a new contact.
+     *
+     * @param string $name
+     * @param string $email
+     * @param string $mailboxHash
+     */
     public function __construct($name, $email, $mailboxHash)
     {
         $this->name = $name;

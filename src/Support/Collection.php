@@ -17,8 +17,7 @@ class Collection implements ArrayAccess, Countable
     /**
      * Create a new collection.
      *
-     * @param  mixed  $items
-     * @return void
+     * @param  array  $items
      */
     public function __construct($items = [])
     {

@@ -7,16 +7,20 @@ use Heyhoo\Postmark\Support\Collection;
 
 class InboundMessage
 {
+    /**
+     * Collection of the json data.
+     *
+     * @var Heyhoo\Postmark\Support\Collection
+     */
     protected $data;
 
     /**
-     * Create a new InboundMessage instance
+     * Create a new InboundMessage instance.
      *
-     * @param mixed $data JSON
+     * @param mixed $json
      */
     public function __construct($json = null)
     {
-        //$this->data = json_decode($json, true);
         $this->data = new Collection(json_decode($json, true));
 
         if ((json_last_error() !== JSON_ERROR_NONE)) {
@@ -24,21 +28,41 @@ class InboundMessage
         }
     }
 
+    /**
+     * Retrieve the collecion of attachments.
+     *
+     * @return Heyhoo\Postmark\Support\Collection
+     */
     public function getAttachmentsAttribute()
     {
         return new Collection($this->data->get('Attachments'));
     }
 
+    /**
+     * Retrieve the collecion of bcc recipients.
+     *
+     * @return Heyhoo\Postmark\Support\Collection
+     */
     public function getBccAttribute()
     {
         return $this->parseContacts($this->data->get('BccFull'));
     }
 
+    /**
+     * Retrieve the collecion of cc recipients.
+     *
+     * @return Heyhoo\Postmark\Support\Collection
+     */
     public function getCcAttribute()
     {
         return $this->parseContacts($this->data->get('CcFull'));
     }
 
+    /**
+     * Retrieve the from contact.
+     *
+     * @return Heyhoo\Postmark\Contact
+     */
     public function getFromAttribute()
     {
         return $this->parseContacts([
@@ -46,11 +70,21 @@ class InboundMessage
         ])->first();
     }
 
+    /**
+     * Retrieve the collecion of recipient contacts.
+     *
+     * @return Heyhoo\Postmark\Support\Collection
+     */
     public function getToAttribute()
     {
         return $this->parseContacts($this->data->get('ToFull'));
     }
 
+    /**
+     * Retrieve the collecion of headers.
+     *
+     * @return Heyhoo\Postmark\Support\Collection
+     */
     public function getHeadersAttribute()
     {
         return Collection::make($this->data->get('Headers'))
@@ -59,11 +93,22 @@ class InboundMessage
             });
     }
 
+    /**
+     * Retrieve the MessageID.
+     *
+     * @return string
+     */
     public function getMessageIdAttribute()
     {
         return $this->data->get('MessageID');
     }
 
+    /**
+     * Parse contacts and return a collection of contacts.
+     *
+     * @param  array  $contacts
+     * @return Heyhoo\Postmark\Support\Collection
+     */
     protected function parseContacts($contacts = [])
     {
         return Collection::make($contacts)
