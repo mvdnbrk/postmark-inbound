@@ -1,7 +1,7 @@
 {
     "name": "heyhoo/postmark-inbound",
     "type": "library",
-    "description": "Postmark Inbound Webhook processing.",
+    "description": "API to process Postmark Inbound Webhooks.",
     "keywords": [
         "heyhoo",
         "postmark",
