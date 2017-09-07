@@ -7,7 +7,6 @@ use Heyhoo\Postmark\Support\Collection;
 
 class InboundMessage
 {
-
     protected $data;
 
     /**
@@ -55,7 +54,7 @@ class InboundMessage
     public function getHeadersAttribute()
     {
         return Collection::make($this->data->get('Headers'))
-            ->mapWithKeys(function($header) {
+            ->mapWithKeys(function ($header) {
                 return [$header['Name'] => $header['Value']];
             });
     }
@@ -67,8 +66,8 @@ class InboundMessage
 
     protected function parseContacts($contacts = [])
     {
-         return Collection::make($contacts)
-            ->map(function($contact) {
+        return Collection::make($contacts)
+            ->map(function ($contact) {
                 $contact = Collection::make($contact);
                 return new Contact($contact->get('Name'), $contact->get('Email'), $contact->get('MailboxHash'));
             });

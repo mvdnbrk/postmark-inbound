@@ -163,7 +163,7 @@ class Collection implements ArrayAccess, Countable
      */
     public function last($default = null)
     {
-         return empty($this->items) ? $default : end($this->items);
+        return empty($this->items) ? $default : end($this->items);
     }
 
     /**
