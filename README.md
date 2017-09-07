@@ -22,17 +22,28 @@ $ composer require heyhoo/postmark-inbound
 ``` php
 $inbound = new \Heyhoo\Postmark\InboundMessage(file_get_contents('php://input'));
 
-$inbound->date;                     // Wed, 6 Sep 2017 19:11:00 +0200
-$inbound->subject;                  // Subject of the message
 $inbound->from->name;               // John Doe
 $inbound->from->email;              // john@example.com
 $inbound->from->full;               // John Doe <john@example.com>
+
+$inbound->tag;
+$inbound->replyTo;
+$inbound->textBody;
+$inbound->htmlBody;
+$inbound->messageId;
+$inbound->strippedTextReply;
+$inbound->originalRecipient;
+
+$inbound->date;                     // Wed, 6 Sep 2017 19:11:00 +0200
+$inbound->subject;                  // Subject of the message
 
 $inbound->to->count()               // Recipient count
 $inbound->cc->count()
 $inbound->bcc->count()
 
 $inbound->attachments->count()      // Attachment count
+
+$inbound->headers->count()          // Header count
 ```
 
 ### Recipients
@@ -56,7 +67,12 @@ $inbound->bcc->each(function($contact) {
 });
 ```
 
-### Attchments
+Get the first recipient:
+```
+$inbound->to->first();
+```
+
+### Attachments
 
 ```
 $inbound->attachments->each(function($attachment) {
@@ -65,6 +81,31 @@ $inbound->attachments->each(function($attachment) {
     $attachment->contentLength;     
     $attachment->content();         // Base64 decoded data     
 });
+```
+
+Get the first attachment:
+```
+$inbound->attachments->first();
+```
+
+Get the last attachment:
+```
+$inbound->attachments->last();
+```
+
+### Headers
+
+```
+$this->message->headers->each(function($value, $key) {
+    ...
+});
+
+$inbound->headers->get('Message-ID');
+$inbound->headers->get('MIME-Version');
+$inbound->headers->get('Received-SPF');
+$inbound->headers->get('X-Spam-Score');
+$inbound->headers->get('X-Spam-Status');
+...
 ```
 
 ## Change log
