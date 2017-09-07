@@ -5,7 +5,7 @@ namespace Heyhoo\Postmark\Test;
 use Heyhoo\Postmark\Attachment;
 use PHPUnit\Framework\TestCase;
 
-class ContactTest extends TestCase
+class AttachmentTest extends TestCase
 {
     /** @test */
     public function attachment_is_constructed()

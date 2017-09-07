@@ -32,33 +32,24 @@ class InboundMessage
 
     public function getBccAttribute()
     {
-        return Collection::make($this->data->get('BccFull'))
-            ->map(function($contact) {
-                return new Contact($contact['Name'], $contact['Email'], $contact['MailboxHash']);
-            });
+        return $this->parseContacts($this->data->get('BccFull'));
     }
 
     public function getCcAttribute()
     {
-        return Collection::make($this->data->get('CcFull'))
-            ->map(function($contact) {
-                return new Contact($contact['Name'], $contact['Email'], $contact['MailboxHash']);
-            });
+        return $this->parseContacts($this->data->get('CcFull'));
     }
 
     public function getFromAttribute()
     {
-        $fromFull = $this->data->get('FromFull');
-
-        return new Contact($fromFull['Name'], $fromFull['Email'], $fromFull['MailboxHash']);
+        return $this->parseContacts([
+            $this->data->get('FromFull')
+        ])->first();
     }
 
     public function getToAttribute()
     {
-        return Collection::make($this->data->get('ToFull'))
-            ->map(function($contact) {
-                return new Contact($contact['Name'], $contact['Email'], $contact['MailboxHash']);
-            });
+        return $this->parseContacts($this->data->get('ToFull'));
     }
 
     public function getHeadersAttribute()
@@ -72,6 +63,15 @@ class InboundMessage
     public function getMessageIdAttribute()
     {
         return $this->data->get('MessageID');
+    }
+
+    protected function parseContacts($contacts = [])
+    {
+         return Collection::make($contacts)
+            ->map(function($contact) {
+                $contact = Collection::make($contact);
+                return new Contact($contact->get('Name'), $contact->get('Email'), $contact->get('MailboxHash'));
+            });
     }
 
     /**
