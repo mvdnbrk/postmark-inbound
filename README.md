@@ -20,13 +20,51 @@ $ composer require heyhoo/postmark-inbound
 ## Usage
 
 ``` php
-$inbound = new Heyhoo\Postmark\InboundMessage(file_get_contents('php://input'));
+$inbound = new \Heyhoo\Postmark\InboundMessage(file_get_contents('php://input'));
 
-$inbound->date;            // Wed, 6 Sep 2017 19:11:00 +0200
-$inbound->subject;         // Subject of the message
-$inbound->from->name;      // John Doe
-$inbound->from->email;     // john@example.com
-$inbound->from->full;      // John Doe <john@example.com>
+$inbound->date;                     // Wed, 6 Sep 2017 19:11:00 +0200
+$inbound->subject;                  // Subject of the message
+$inbound->from->name;               // John Doe
+$inbound->from->email;              // john@example.com
+$inbound->from->full;               // John Doe <john@example.com>
+
+$inbound->to->count()               // Recipient count
+$inbound->cc->count()
+$inbound->bcc->count()
+
+$inbound->attachments->count()      // Attachment count
+```
+
+### Recipients
+
+```
+$inbound->to->each(function($contact) {
+    $contact->name;
+    $contact->email;
+    $contact->full;
+    $contact->mailboxHash;
+});
+
+$inbound->cc->each(function($contact) {
+    $contact->name;
+    ...
+});
+
+$inbound->bcc->each(function($contact) {
+    $contact->name;
+    ...
+});
+```
+
+### Attchments
+
+```
+$inbound->attachments->each(function($attachment) {
+    $attachment->name;
+    $attachment->contentType;
+    $attachment->contentLength;     
+    $attachment->content();         // Base64 decoded data     
+});
 ```
 
 ## Change log

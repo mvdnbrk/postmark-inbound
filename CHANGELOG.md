@@ -4,19 +4,12 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## NEXT - YYYY-MM-DD
-
+## [Unreleased]
 ### Added
-- Nothing
+- Added doc blocks.
 
-### Deprecated
-- Nothing
+### Changed
+- Updated README.
+- phpunit minimum version set to 5.4.3.
 
-### Fixed
-- Nothing
-
-### Removed
-- Nothing
-
-### Security
-- Nothing
+## [1.0.0] - 2017-09-06
