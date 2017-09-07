@@ -1,0 +1,98 @@
+{
+  "From": "myUser@theirDomain.com",
+  "FromName": "My User",
+  "FromFull": {
+    "Email": "john@example.com",
+    "Name": "John Doe",
+    "MailboxHash": ""
+  },
+  "To": "someone+ahoy@inbound.postmarkapp.com",
+  "ToFull": [
+    {
+      "Email": "jane+ahoy@inbound.postmarkapp.com",
+      "Name": "Jane Doe",
+      "MailboxHash": "ahoy"
+    }
+  ],
+  "Cc": "\"Full name\" <sample.cc@emailDomain.com>, \"Another Cc\" <another.cc@emailDomain.com>",
+  "CcFull": [
+    {
+      "Email": "sample.cc@example.com",
+      "Name": "Full name Cc",
+      "MailboxHash": ""
+    },
+    {
+      "Email": "another.cc@example.com",
+      "Name": "Another Cc",
+      "MailboxHash": ""
+    }
+  ],
+  "Bcc": "\"Full name\" <451d9b70cf9364d23ff6f9d51d870251569e+ahoy@inbound.postmarkapp.com>",
+  "BccFull": [
+    {
+      "Email": "sample.bcc+ahoy@inbound.postmarkapp.com",
+      "Name": "Full name Bcc",
+      "MailboxHash": "ahoy"
+    }
+  ],
+  "OriginalRecipient": "1234+ahoy@inbound.postmarkapp.com",
+  "ReplyTo": "reply-to@example.com",
+  "Subject": "Postmark inbound message test",
+  "MessageID": "a123456-b1234-c123456-d1234",
+  "Date": "Wed, 6 Sep 2017 19:11:00 +0200",
+  "MailboxHash": "ahoy",
+  "TextBody": "[ASCII]",
+  "HtmlBody": "<html></html>",
+  "StrippedTextReply": "Okay, thank you for testing this inbound message!",
+  "Tag": "test-tag",
+  "Headers": [
+    {
+      "Name": "X-Spam-Checker-Version",
+      "Value": "SpamAssassin 3.3.1 (2010-03-16) onrs-ord-pm-inbound1.wildbit.com"
+    },
+    {
+      "Name": "X-Spam-Status",
+      "Value": "No"
+    },
+    {
+      "Name": "X-Spam-Score",
+      "Value": "-0.1"
+    },
+    {
+      "Name": "X-Spam-Tests",
+      "Value": "DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,SPF_PASS"
+    },
+    {
+      "Name": "Received-SPF",
+      "Value": "Pass (sender SPF authorized)"
+    },
+    {
+      "Name": "DKIM-Signature",
+      "Value": "v=1; a=rsa-sha256; c=relaxed/relaxed;        d=wildbit.com; s=google;        h=mime-version:reply-to:date:message-id:subject:from:to:cc         :content-type;        bh=cYr/+oQiklaYbBJOQU3CdAnyhCTuvemrU36WT7cPNt0=;        b=QsegXXbTbC4CMirl7A3VjDHyXbEsbCUTPL5vEHa7hNkkUTxXOK+dQA0JwgBHq5C+1u         iuAJMz+SNBoTqEDqte2ckDvG2SeFR+Edip10p80TFGLp5RucaYvkwJTyuwsA7xd78NKT         Q9ou6L1hgy/MbKChnp2kxHOtYNOrrszY3JfQM="
+    },
+    {
+      "Name": "MIME-Version",
+      "Value": "1.0"
+    },
+    {
+      "Name": "Message-ID",
+      "Value": "<test-messag-id@mail.example.com>"
+    }
+  ],
+  "Attachments": [
+    {
+      "Name": "myimage.png",
+      "Content": "[BASE64-ENCODED CONTENT]",
+      "ContentType": "image/png",
+      "ContentLength": 4096,
+      "ContentID": "myimage.png@01CE7342.75E71F80"
+    },
+    {
+      "Name": "mypaper.doc",
+      "Content": "[BASE64-ENCODED CONTENT]",
+      "ContentType": "application/msword",
+      "ContentLength": 16384,
+      "ContentID": ""
+    }
+  ]
+}
