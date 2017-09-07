@@ -37,7 +37,7 @@ class Attachment
      *
      * @param string $name
      * @param string $contentType
-     * @param string $contentLength
+     * @param int $contentLength
      * @param mixed $content
      */
     public function __construct($name, $contentType, $contentLength, $content)

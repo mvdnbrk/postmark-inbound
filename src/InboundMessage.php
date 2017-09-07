@@ -10,7 +10,7 @@ class InboundMessage
     /**
      * Collection of the json data.
      *
-     * @var Heyhoo\Postmark\Support\Collection
+     * @var \Heyhoo\Postmark\Support\Collection
      */
     protected $data;
 
@@ -31,7 +31,7 @@ class InboundMessage
     /**
      * Retrieve the collecion of attachments.
      *
-     * @return Heyhoo\Postmark\Support\Collection
+     * @return \Heyhoo\Postmark\Support\Collection
      */
     public function getAttachmentsAttribute()
     {
@@ -41,7 +41,7 @@ class InboundMessage
     /**
      * Retrieve the collecion of bcc recipients.
      *
-     * @return Heyhoo\Postmark\Support\Collection
+     * @return \Heyhoo\Postmark\Support\Collection
      */
     public function getBccAttribute()
     {
@@ -51,7 +51,7 @@ class InboundMessage
     /**
      * Retrieve the collecion of cc recipients.
      *
-     * @return Heyhoo\Postmark\Support\Collection
+     * @return \Heyhoo\Postmark\Support\Collection
      */
     public function getCcAttribute()
     {
@@ -61,7 +61,7 @@ class InboundMessage
     /**
      * Retrieve the from contact.
      *
-     * @return Heyhoo\Postmark\Contact
+     * @return \Heyhoo\Postmark\Contact
      */
     public function getFromAttribute()
     {
@@ -73,7 +73,7 @@ class InboundMessage
     /**
      * Retrieve the collecion of recipient contacts.
      *
-     * @return Heyhoo\Postmark\Support\Collection
+     * @return \Heyhoo\Postmark\Support\Collection
      */
     public function getToAttribute()
     {
@@ -83,7 +83,7 @@ class InboundMessage
     /**
      * Retrieve the collecion of headers.
      *
-     * @return Heyhoo\Postmark\Support\Collection
+     * @return \Heyhoo\Postmark\Support\Collection
      */
     public function getHeadersAttribute()
     {
@@ -107,7 +107,7 @@ class InboundMessage
      * Parse contacts and return a collection of contacts.
      *
      * @param  array  $contacts
-     * @return Heyhoo\Postmark\Support\Collection
+     * @return \Heyhoo\Postmark\Support\Collection
      */
     protected function parseContacts($contacts = [])
     {
