@@ -126,5 +126,18 @@ class InboundMessageTest extends TestCase
     public function message_has_attachments()
     {
         $this->assertEquals($this->message->attachments->count(), 2);
+
+        $attachment = $this->message->attachments->first();
+        $this->assertEquals('myimage.png', $attachment->name);
+        $this->assertEquals('image/png', $attachment->contentType);
+        $this->assertEquals(4096, $attachment->contentLength);
+        $this->assertEquals('myimage.png@01CE7342.75E71F80', $attachment->contentId);
+
+        $attachment = $this->message->attachments->last();
+        $this->assertEquals('test.txt', $attachment->name);
+        $this->assertEquals('plain/text', $attachment->contentType);
+        $this->assertEquals(8, $attachment->contentLength);
+        $this->assertEquals('test.txt@01CE7342.75E71F80', $attachment->contentId);
+        $this->assertEquals('test', $attachment->content());
     }
 }

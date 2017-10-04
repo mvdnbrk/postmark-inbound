@@ -88,11 +88,11 @@
       "ContentID": "myimage.png@01CE7342.75E71F80"
     },
     {
-      "Name": "mypaper.doc",
-      "Content": "[BASE64-ENCODED CONTENT]",
-      "ContentType": "application/msword",
-      "ContentLength": 16384,
-      "ContentID": ""
+      "Name": "test.txt",
+      "Content": "dGVzdA==",
+      "ContentType": "plain/text",
+      "ContentLength": 8,
+      "ContentID": "test.txt@01CE7342.75E71F80"
     }
   ]
 }

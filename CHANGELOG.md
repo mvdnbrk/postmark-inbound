@@ -5,6 +5,12 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
 ## [Unreleased]
+
+## [1.0.1] - 2017-10-04
+
+### Fixed
+- Attachments.
+
 ### Added
 - Added doc blocks.
 
