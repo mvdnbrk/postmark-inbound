@@ -75,6 +75,14 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
+    public function get_with_default()
+    {
+        $data = new Collection;
+        $result = $data->get('foo', 'default');
+        $this->assertEquals('default', $result);
+    }
+
+    /** @test */
     public function last_returns_last_item_in_collection()
     {
         $c = new Collection(['foo', 'bar']);
