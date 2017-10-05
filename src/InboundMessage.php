@@ -37,13 +37,15 @@ class InboundMessage
     {
         $attachments = new Collection($this->data->get('Attachments'));
 
-        return $attachments->map(function ($attachment) {
+        return $attachments->map(function ($data) {
+            $attachment = new Collection($data);
+
             return new Attachment(
-                $attachment['Name'],
-                $attachment['ContentID'],
-                $attachment['ContentType'],
-                $attachment['ContentLength'],
-                $attachment['Content']
+                $attachment->get('Name'),
+                $attachment->get('ContentID'),
+                $attachment->get('ContentType'),
+                $attachment->get('ContentLength'),
+                $attachment->get('Content')
             );
         });
     }

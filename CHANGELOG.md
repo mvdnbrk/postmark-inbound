@@ -6,6 +6,9 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## [Unreleased]
 
+## [1.0.1] - 2017-10-05
+- Fix: attachment ContentID can be null.
+
 ## [1.0.1] - 2017-10-04
 
 ### Fixed

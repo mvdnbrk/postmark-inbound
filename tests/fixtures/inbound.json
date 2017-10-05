@@ -91,8 +91,7 @@
       "Name": "test.txt",
       "Content": "dGVzdA==",
       "ContentType": "plain/text",
-      "ContentLength": 8,
-      "ContentID": "test.txt@01CE7342.75E71F80"
+      "ContentLength": 8
     }
   ]
 }

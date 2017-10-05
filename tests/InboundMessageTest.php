@@ -137,7 +137,7 @@ class InboundMessageTest extends TestCase
         $this->assertEquals('test.txt', $attachment->name);
         $this->assertEquals('plain/text', $attachment->contentType);
         $this->assertEquals(8, $attachment->contentLength);
-        $this->assertEquals('test.txt@01CE7342.75E71F80', $attachment->contentId);
+        $this->assertNull($attachment->contentId);
         $this->assertEquals('test', $attachment->content());
     }
 }
