@@ -116,6 +116,16 @@ class InboundMessage
     }
 
     /**
+     * Retrieve the Message-ID value from the headers.
+     *
+     * @return string
+     */
+    public function getMessageIdFromHeadersAttribute()
+    {
+        return $this->headers->changeKeyCase()->get('message-id');
+    }
+
+    /**
      * Parse contacts and return a collection of contacts.
      *
      * @param  array  $contacts

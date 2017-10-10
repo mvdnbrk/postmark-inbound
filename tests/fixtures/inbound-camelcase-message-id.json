@@ -1,0 +1,26 @@
+{
+  "From": "myUser@theirDomain.com",
+  "FromName": "My User",
+  "FromFull": {
+    "Email": "john@example.com",
+    "Name": "John Doe"
+  },
+  "To": "someone+ahoy@inbound.postmarkapp.com",
+  "ToFull": [
+    {
+      "Email": "jane+ahoy@inbound.postmarkapp.com",
+      "Name": "Jane Doe"
+    }
+  ],
+  "Subject": "Postmark inbound message test",
+  "MessageID": "a123456-b1234-c123456-d1234",
+  "Date": "Wed, 6 Sep 2017 19:11:00 +0200",
+  "TextBody": "[ASCII]",
+  "HtmlBody": "<html></html>",
+  "Headers": [
+    {
+      "Name": "Message-Id",
+      "Value": "<test-messag-id@mail.example.com>"
+    }
+  ]
+}

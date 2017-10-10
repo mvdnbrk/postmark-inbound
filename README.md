@@ -30,7 +30,8 @@ $inbound->tag;
 $inbound->replyTo;
 $inbound->textBody;
 $inbound->htmlBody;
-$inbound->messageId;
+$inbound->messageId;                // MessageID assigned by Postmark.
+$inbound->messageIdFromHeaders;     // Message-ID value from headers.
 $inbound->strippedTextReply;
 $inbound->originalRecipient;
 
@@ -78,8 +79,8 @@ $inbound->to->first();
 $inbound->attachments->each(function($attachment) {
     $attachment->name;
     $attachment->contentType;
-    $attachment->contentLength;     
-    $attachment->content();         // Base64 decoded data     
+    $attachment->contentLength;
+    $attachment->content();         // Base64 decoded data
 });
 ```
 

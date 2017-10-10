@@ -140,4 +140,13 @@ class InboundMessageTest extends TestCase
         $this->assertNull($attachment->contentId);
         $this->assertEquals('test', $attachment->content());
     }
+
+    /** @test */
+    public function get_message_id_from_headers()
+    {
+        $this->assertEquals('<test-messag-id@mail.example.com>', $this->message->messageIdFromHeaders);
+
+        $this->message = new InboundMessage(file_get_contents('./tests/fixtures/inbound-camelcase-message-id.json'));
+        $this->assertEquals('<test-messag-id@mail.example.com>', $this->message->messageIdFromHeaders);
+    }
 }
