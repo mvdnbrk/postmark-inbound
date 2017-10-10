@@ -67,6 +67,15 @@ class CollectionTest extends TestCase
 
         $c = new Collection(['key' => 'value']);
         $this->assertEquals(['key' => 'value'], $c->toArray());
+    }
+
+    /** @test */
+    public function change_key_case_returns_array_with_changed_key_case()
+    {
+        $c = new Collection(['FOO' => 'BAR', 'bAr' => 'bAz']);
+        $this->assertEquals(['foo' => 'BAR', 'bar' => 'bAz'], $c->changeKeyCase()->all());
+    }
+
     /** @test */
     public function first_returns_first_item_in_collection()
     {

@@ -105,6 +105,18 @@ class Collection implements ArrayAccess, Countable
     }
 
     /**
+     * Change key of the collection to
+     * upper or lowecase.
+     *
+     * @param int $case
+     * @return static
+     */
+    public function changeKeyCase($case = CASE_LOWER)
+    {
+        return new static(array_change_key_case($this->items, $case));
+    }
+
+    /**
      * Get an item from the collection by key.
      *
      * @param  mixed  $key
