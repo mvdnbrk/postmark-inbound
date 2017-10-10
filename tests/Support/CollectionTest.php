@@ -60,6 +60,14 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
+    public function to_array_returns_an_array()
+    {
+        $c = new Collection(['foo', 'bar']);
+        $this->assertEquals(['foo', 'bar'], $c->toArray());
+
+        $c = new Collection(['key' => 'value']);
+        $this->assertEquals(['key' => 'value'], $c->toArray());
+    /** @test */
     public function first_returns_first_item_in_collection()
     {
         $c = new Collection(['foo', 'bar']);

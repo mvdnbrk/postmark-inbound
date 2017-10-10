@@ -201,4 +201,14 @@ class Collection implements ArrayAccess, Countable
 
         return new static($result);
     }
+
+    /**
+     * Get the collection of items as a plain array.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->items;
+    }
 }
