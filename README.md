@@ -96,8 +96,12 @@ $inbound->attachments->last();
 
 ### Headers
 
+The Message-ID in the headers are sometimes keyed with upper `ID` and sometimes they are in the format of `Id`.
+So if you want to get the Message-ID from a message you can simply use the `$inbound->messageIdFromHeaders` helper attribute.
+Please note that `$inbound->messageId` will give you the id of the message that was assigned by Postmark.
+
 ```
-$this->message->headers->each(function($value, $key) {
+$inbound->headers->each(function($value, $key) {
     ...
 });
 
