@@ -1,9 +1,9 @@
 <?php
 
-namespace Heyhoo\Postmark\Test\Collection;
+namespace Mvdnbrk\Postmark\Test\Collection;
 
 use PHPUnit\Framework\TestCase;
-use Heyhoo\Postmark\Support\Collection;
+use Mvdnbrk\Postmark\Support\Collection;
 
 class CollectionTest extends TestCase
 {

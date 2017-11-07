@@ -1,8 +1,8 @@
 <?php
 
-namespace Heyhoo\Postmark\Test;
+namespace Mvdnbrk\Postmark\Test;
 
-use Heyhoo\Postmark\InboundMessage;
+use Mvdnbrk\Postmark\InboundMessage;
 use PHPUnit\Framework\TestCase;
 
 class InboundMessageTest extends TestCase

@@ -20,7 +20,7 @@ $ composer require mvdnbrk/postmark-inbound
 ## Usage
 
 ``` php
-$inbound = new \Heyhoo\Postmark\InboundMessage(file_get_contents('php://input'));
+$inbound = new \Mvdnbrk\Postmark\InboundMessage(file_get_contents('php://input'));
 
 $inbound->from->name;               // John Doe
 $inbound->from->email;              // john@example.com
@@ -137,8 +137,8 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/mvdnbrk/postmark-inbound.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/mvdnbrk/postmark-inbound.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/heyhoo/postmark-inbound
-[link-travis]: https://travis-ci.org/heyhoo/postmark-inbound
+[link-packagist]: https://packagist.org/packages/mvdnbrk/postmark-inbound
+[link-travis]: https://travis-ci.org/mvdnbrk/postmark-inbound
 [link-scrutinizer]: https://scrutinizer-ci.com/g/mvdnbrk/postmark-inbound/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/mvdnbrk/postmark-inbound
 [link-downloads]: https://packagist.org/packages/mvdnbrk/postmark-inbound

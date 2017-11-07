@@ -1,6 +1,6 @@
 <?php
 
-namespace Heyhoo\Postmark;
+namespace Mvdnbrk\Postmark;
 
 class Attachment
 {

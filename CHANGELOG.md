@@ -5,6 +5,10 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
+## [2.0.0] - 2017-11-07
+
+- Renames namespace to `Mvdnbrk`.
+
 ## [1.0.5] - 2017-11-07
 
 - Updates composer.json. [`972576e`](https://github.com/mvdnbrk/postmark-inbound/commit/972576e423de2e4844e60659a2da83a75c10c080)

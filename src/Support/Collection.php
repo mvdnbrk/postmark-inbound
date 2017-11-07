@@ -1,6 +1,6 @@
 <?php
 
-namespace Heyhoo\Postmark\Support;
+namespace Mvdnbrk\Postmark\Support;
 
 use Countable;
 use ArrayAccess;

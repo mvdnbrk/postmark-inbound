@@ -1,8 +1,8 @@
 <?php
 
-namespace Heyhoo\Postmark\Test;
+namespace Mvdnbrk\Postmark\Test;
 
-use Heyhoo\Postmark\Contact;
+use Mvdnbrk\Postmark\Contact;
 use PHPUnit\Framework\TestCase;
 
 class ContactTest extends TestCase

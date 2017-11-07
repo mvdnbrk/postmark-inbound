@@ -1,8 +1,8 @@
 <?php
 
-namespace Heyhoo\Postmark\Test;
+namespace Mvdnbrk\Postmark\Test;
 
-use Heyhoo\Postmark\Attachment;
+use Mvdnbrk\Postmark\Attachment;
 use PHPUnit\Framework\TestCase;
 
 class AttachmentTest extends TestCase

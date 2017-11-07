@@ -4,10 +4,11 @@
     "description": "API to process Postmark Inbound Webhooks.",
     "keywords": [
         "postmark",
+        "e-mail",
         "inbound",
         "webhook"
     ],
-    "homepage": "https://github.com/heyhoo/postmark-inbound",
+    "homepage": "https://github.com/mvdnbrk/postmark-inbound",
     "license": "MIT",
     "authors": [
         {
@@ -27,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Heyhoo\\Postmark\\": "src"
+            "Mvdnbrk\\Postmark\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Heyhoo\\Postmark\\Test\\": "tests"
+            "Mvdnbrk\\Postmark\\Test\\": "tests"
         }
     },
     "scripts": {

@@ -2,7 +2,7 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/heyhoo/postmark-inbound).
+We accept contributions via Pull Requests on [Github](https://github.com/mvdnbrk/postmark-inbound).
 
 
 ## Pull Requests
