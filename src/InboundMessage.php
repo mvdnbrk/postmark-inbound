@@ -35,7 +35,7 @@ class InboundMessage
      */
     public function getAttachmentsAttribute()
     {
-        $attachments = new Collection($this->data->get('Attachments'));
+        $attachments = new Collection($this->data->get('Attachments', []));
 
         return $attachments->map(function ($data) {
             $attachment = new Collection($data);

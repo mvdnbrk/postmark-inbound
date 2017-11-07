@@ -142,6 +142,13 @@ class InboundMessageTest extends TestCase
     }
 
     /** @test */
+    public function message_has_no_attachments_when_not_present_in_json_payload()
+    {
+        $this->message = new InboundMessage(file_get_contents('./tests/fixtures/inbound-camelcase-message-id.json'));
+        $this->assertEquals($this->message->attachments->count(), 0);
+    }
+
+    /** @test */
     public function get_message_id_from_headers()
     {
         $this->assertEquals('<test-messag-id@mail.example.com>', $this->message->messageIdFromHeaders);

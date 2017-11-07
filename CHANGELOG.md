@@ -4,6 +4,11 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
+## [1.0.4] - 2017-11-07
+
+- Added a test in case of receiving a payload without Attachments.
+- Updates readme. [`8f88946`](https://github.com/heyhoo/postmark-inbound/commit/8f889468315543b4914dc9a2d35ad1859415d465)
+
 ## [1.0.3] - 2017-10-10
 
 ### Added
@@ -37,7 +42,8 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 - Code style fixes. [`7c8eb86`](https://github.com/heyhoo/postmark-inbound/commit/7c8eb86cbf9719fbb568160decf4ae8dc735ce98)
 - PHPUnit minimum version set to 5.4.3. [`c2331a4`](https://github.com/heyhoo/postmark-inbound/commit/c2331a48557ef88f67b2a7df1176cccf05a2b3e8)
 
-[Unreleased]: https://github.com/heyhoo/postmark-inbound/compare/v1.0.3...HEAD
+[Unreleased]: https://github.com/heyhoo/postmark-inbound/compare/v1.0.4...HEAD
+[1.0.4]: https://github.com/heyhoo/postmark-inbound/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/heyhoo/postmark-inbound/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/heyhoo/postmark-inbound/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/heyhoo/postmark-inbound/compare/v1.0.0...v1.0.1
