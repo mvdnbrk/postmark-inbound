@@ -6,7 +6,7 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 
 ## [1.0.4] - 2017-11-07
 
-- Added a test in case of receiving a payload without Attachments.[`9784ed8`](https://github.com/mvdnbrk/postmark-inbound/commit/9784ed8f9ad73d3985d284bde3dbf683fc648c27)
+- Added a test in case of receiving a payload without Attachments. [`9784ed8`](https://github.com/mvdnbrk/postmark-inbound/commit/9784ed8f9ad73d3985d284bde3dbf683fc648c27)
 - Updates readme. [`8f88946`](https://github.com/mvdnbrk/postmark-inbound/commit/8f889468315543b4914dc9a2d35ad1859415d465)
 
 ## [1.0.3] - 2017-10-10
