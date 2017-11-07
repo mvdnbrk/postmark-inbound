@@ -1,9 +1,8 @@
 {
-    "name": "heyhoo/postmark-inbound",
+    "name": "mvdnbrk/postmark-inbound",
     "type": "library",
     "description": "API to process Postmark Inbound Webhooks.",
     "keywords": [
-        "heyhoo",
         "postmark",
         "inbound",
         "webhook"
@@ -13,8 +12,8 @@
     "authors": [
         {
             "name": "Mark van den Broek",
-            "email": "mark@heyhoo.nl",
-            "homepage": "https://github.com/heyhoo",
+            "email": "mvdnbrk@gmail.com",
+            "homepage": "https://github.com/mvdnbrk",
             "role": "Developer"
         }
     ],
