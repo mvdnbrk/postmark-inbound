@@ -2,6 +2,7 @@
 
 namespace Mvdnbrk\Postmark;
 
+use DateTime;
 use Mvdnbrk\Postmark\Contact;
 use Mvdnbrk\Postmark\Support\Collection;
 
@@ -13,6 +14,13 @@ class InboundMessage
      * @var \Mvdnbrk\Postmark\Support\Collection
      */
     protected $data;
+
+    /*
+     * DateTime when the message was reveived,
+     *
+     * @var DateTime
+     */
+    protected $datetime;
 
     /**
      * Create a new InboundMessage instance.
@@ -26,6 +34,11 @@ class InboundMessage
         if ((json_last_error() !== JSON_ERROR_NONE)) {
             throw new \InvalidArgumentException('You must provide a valid JSON source.');
         }
+
+        $this->datetime = DateTime::createFromFormat(
+            DateTime::RFC2822,
+            $this->date
+        );
     }
 
     /**
@@ -90,6 +103,16 @@ class InboundMessage
     public function getToAttribute()
     {
         return $this->parseContacts($this->data->get('ToFull'));
+    }
+
+    /**
+     * Retrieve the timezone from the message.
+     *
+     * @return string
+     */
+    public function getTimezoneAttribute()
+    {
+        return $this->datetime->getTimezone()->getName();
     }
 
     /**

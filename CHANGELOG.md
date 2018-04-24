@@ -5,6 +5,9 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+- Added getTiemzoneAttribute method.
+
 ## [2.0.0] - 2017-11-07
 
 - Renames namespace to `Mvdnbrk`.
