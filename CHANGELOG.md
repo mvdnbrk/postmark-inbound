@@ -10,7 +10,7 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 
 ## [2.0.0] - 2017-11-07
 
-- Renames namespace to `Mvdnbrk`.
+- Renames namespace to `Mvdnbrk`. [`d60d576`](https://github.com/mvdnbrk/postmark-inbound/commit/d60d57614976ab1c043a21a81832b82c770244c5)
 
 ## [1.0.5] - 2017-11-07
 
@@ -54,7 +54,8 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 - Code style fixes. [`7c8eb86`](https://github.com/mvdnbrk/postmark-inbound/commit/7c8eb86cbf9719fbb568160decf4ae8dc735ce98)
 - PHPUnit minimum version set to 5.4.3. [`c2331a4`](https://github.com/mvdnbrk/postmark-inbound/commit/c2331a48557ef88f67b2a7df1176cccf05a2b3e8)
 
-[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v1.0.5...HEAD
+[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v1.0.5...v2.0.0
 [1.0.5]: https://github.com/mvdnbrk/postmark-inbound/compare/v1.0.4...v1.0.5
 [1.0.4]: https://github.com/mvdnbrk/postmark-inbound/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/mvdnbrk/postmark-inbound/compare/v1.0.2...v1.0.3
