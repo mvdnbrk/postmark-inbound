@@ -95,6 +95,13 @@ class InboundMessageTest extends TestCase
     }
 
     /** @test */
+    public function message_can_have_an_empty_subject()
+    {
+        $this->message = new InboundMessage('{"Date": "Wed, 6 Sep 2017 19:11:00 +0200", "Subject": ""}');
+        $this->assertEmpty($this->message->subject);
+    }
+
+    /** @test */
     public function message_has_an_id()
     {
         $this->assertEquals('a123456-b1234-c123456-d1234', $this->message->messageId);

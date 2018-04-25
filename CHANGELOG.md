@@ -7,6 +7,7 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 
 ### Added
 - Added has method to Collection class.
+- Added a test for messages with an empty subject.
 
 ### Fixed
 - Fixes getter to check if it has a key.
