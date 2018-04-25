@@ -42,7 +42,7 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
-    public function testArrayAccessOffsetSet()
+    public function array_access_offset_set()
     {
         $c = new Collection(['foo', 'foo']);
         $c->offsetSet(1, 'bar');
