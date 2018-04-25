@@ -9,6 +9,7 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 - Added has method to Collection class.
 
 ### Fixed
+- Fixes getter to check if it has a key.
 - Fixes tests to match expected/actual pattern. [`41b7910`](https://github.com/mvdnbrk/postmark-inbound/commit/41b791044a732b301588ea5de5d55a7f9990edf2)
 
 ## [2.1.0] - 2018-04-25

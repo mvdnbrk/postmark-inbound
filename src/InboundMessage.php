@@ -216,7 +216,7 @@ class InboundMessage
             return $this->{'get'.$key.'Attribute'}();
         }
 
-        if ($this->data->get($key)) {
+        if ($this->data->has($key)) {
             return $this->data->get($key);
         }
 
