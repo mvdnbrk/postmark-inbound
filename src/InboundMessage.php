@@ -3,6 +3,7 @@
 namespace Mvdnbrk\Postmark;
 
 use DateTime;
+use DateTimeZone;
 use Mvdnbrk\Postmark\Contact;
 use Mvdnbrk\Postmark\Support\Collection;
 
@@ -113,6 +114,16 @@ class InboundMessage
     public function getTimezoneAttribute()
     {
         return $this->datetime->getTimezone()->getName();
+    }
+
+    /**
+     * Retrieve the UTC date from the message.
+     *
+     * @return string
+     */
+    public function getUtcDateAttribute()
+    {
+        return (clone $this->datetime)->setTimezone(new DateTimeZone('UTC'))->format('Y-m-d H:i:s');;
     }
 
     /**

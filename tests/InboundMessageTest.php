@@ -33,6 +33,13 @@ class InboundMessageTest extends TestCase
     }
 
     /** @test */
+    public function message_has_utc_date()
+    {
+        $this->assertEquals($this->message->utcDate, '2017-09-06 17:11:00');
+        $this->assertEquals($this->message->timezone, '+02:00');
+    }
+
+    /** @test */
     public function message_has_a_sender()
     {
         $this->assertEquals($this->message->from->email, 'john@example.com');
