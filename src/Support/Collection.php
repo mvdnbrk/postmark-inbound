@@ -133,6 +133,23 @@ class Collection implements ArrayAccess, Countable
     }
 
     /**
+     * Determine if an item exists in the collection by key.
+     *
+     * @param  mixed  $key
+     * @return bool
+     */
+    public function has($key)
+    {
+        $keys = is_array($key) ? $key : func_get_args();
+        foreach ($keys as $value) {
+            if (! $this->offsetExists($value)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
      * Execute a callback over each item.
      *
      * @param  callable  $callback
