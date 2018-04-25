@@ -38,7 +38,7 @@ class InboundMessage
 
         $this->datetime = DateTime::createFromFormat(
             DateTime::RFC2822,
-            $this->date
+            $this->data->get('Date')
         );
 
         if ($this->datetime === false) {
@@ -128,7 +128,6 @@ class InboundMessage
     public function getUtcDateAttribute()
     {
         return (clone $this->datetime)->setTimezone(new DateTimeZone('UTC'))->format('Y-m-d H:i:s');
-        ;
     }
 
     /**
