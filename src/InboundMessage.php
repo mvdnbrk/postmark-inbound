@@ -49,6 +49,7 @@ class InboundMessage
      * Create a new InboundMessage instance.
      *
      * @param mixed $json
+     * @throws \InvalidArgumentException
      */
     public function __construct($json = null)
     {
@@ -204,6 +205,7 @@ class InboundMessage
      * Dynamically retrieve attributes on the data model.
      *
      * @param  string  $key
+     * @throws \InvalidArgumentException
      * @return mixed
      */
     public function __get($key)
@@ -217,5 +219,7 @@ class InboundMessage
         if ($this->data->get($key)) {
             return $this->data->get($key);
         }
+
+        throw new \InvalidArgumentException(sprintf("Unknown getter '%s'", $key));
     }
 }

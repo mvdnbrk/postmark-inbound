@@ -9,6 +9,7 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 - Added getTimzoneAttribute method.
 - Added getUtcDateAttribute method.
 - Added a test for invalid dates.
+- Added a test for unknown getters.
 
 ## [2.0.0] - 2017-11-07
 

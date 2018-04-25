@@ -28,6 +28,13 @@ class InboundMessageTest extends TestCase
     }
 
     /** @test */
+    public function getting_unknown_getter_throws_exception()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->message->doesNotExist;
+    }
+
+    /** @test */
     public function message_has_a_date()
     {
         $this->assertEquals($this->message->date, 'Wed, 6 Sep 2017 19:11:00 +0200');
