@@ -5,6 +5,9 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
+### Fixed
+- Fixes tests to match expected/actual pattern.
+
 ## [2.1.0] - 2018-04-25
 
 ### Added

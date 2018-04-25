@@ -11,9 +11,9 @@ class ContactTest extends TestCase
     public function contact_is_constructed()
     {
         $c = new Contact('John', 'john@example.com', 'hash');
-        $this->assertEquals($c->name, 'John');
-        $this->assertEquals($c->email, 'john@example.com');
-        $this->assertEquals($c->mailboxHash, 'hash');
-        $this->assertEquals($c->full, 'John <john@example.com>');
+        $this->assertEquals('John', $c->name);
+        $this->assertEquals('john@example.com', $c->email);
+        $this->assertEquals('hash', $c->mailboxHash);
+        $this->assertEquals('John <john@example.com>', $c->full);
     }
 }

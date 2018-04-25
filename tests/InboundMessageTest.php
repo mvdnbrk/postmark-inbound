@@ -37,122 +37,122 @@ class InboundMessageTest extends TestCase
     /** @test */
     public function message_has_a_date()
     {
-        $this->assertEquals($this->message->date, 'Wed, 6 Sep 2017 19:11:00 +0200');
+        $this->assertEquals('Wed, 6 Sep 2017 19:11:00 +0200', $this->message->date);
     }
 
     /** @test */
     public function message_has_a_timezone()
     {
-        $this->assertEquals($this->message->timezone, '+02:00');
+        $this->assertEquals('+02:00', $this->message->timezone);
     }
 
     /** @test */
     public function message_has_utc_date()
     {
-        $this->assertEquals($this->message->utcDate, '2017-09-06 17:11:00');
-        $this->assertEquals($this->message->timezone, '+02:00');
+        $this->assertEquals('2017-09-06 17:11:00', $this->message->utcDate);
+        $this->assertEquals('+02:00', $this->message->timezone);
     }
 
     /** @test */
     public function message_has_a_sender()
     {
-        $this->assertEquals($this->message->from->email, 'john@example.com');
-        $this->assertEquals($this->message->from->name, 'John Doe');
-        $this->assertEquals($this->message->from->full, 'John Doe <john@example.com>');
+        $this->assertEquals('john@example.com', $this->message->from->email);
+        $this->assertEquals('John Doe', $this->message->from->name);
+        $this->assertEquals('John Doe <john@example.com>', $this->message->from->full);
     }
 
     /** @test */
     public function message_has_to_recpients()
     {
-        $this->assertEquals($this->message->to->count(), 1);
-        $this->assertEquals($this->message->to->first()->email, 'jane+ahoy@inbound.postmarkapp.com');
-        $this->assertEquals($this->message->to->first()->name, 'Jane Doe');
+        $this->assertEquals(1, $this->message->to->count());
+        $this->assertEquals('jane+ahoy@inbound.postmarkapp.com', $this->message->to->first()->email);
+        $this->assertEquals('Jane Doe', $this->message->to->first()->name);
     }
 
     /** @test */
     public function message_has_cc_recpients()
     {
-        $this->assertEquals($this->message->cc->count(), 2);
-        $this->assertEquals($this->message->cc->first()->email, 'sample.cc@example.com');
-        $this->assertEquals($this->message->cc->first()->name, 'Full name Cc');
-        $this->assertEquals($this->message->cc->last()->email, 'another.cc@example.com');
-        $this->assertEquals($this->message->cc->last()->name, 'Another Cc');
+        $this->assertEquals(2, $this->message->cc->count());
+        $this->assertEquals('sample.cc@example.com', $this->message->cc->first()->email);
+        $this->assertEquals('Full name Cc', $this->message->cc->first()->name);
+        $this->assertEquals('another.cc@example.com', $this->message->cc->last()->email);
+        $this->assertEquals('Another Cc', $this->message->cc->last()->name);
     }
 
     /** @test */
     public function message_has_bcc_recpients()
     {
-        $this->assertEquals($this->message->bcc->count(), 1);
-        $this->assertEquals($this->message->bcc->first()->email, 'sample.bcc+ahoy@inbound.postmarkapp.com');
-        $this->assertEquals($this->message->bcc->first()->name, 'Full name Bcc');
-        $this->assertEquals($this->message->bcc->first()->mailboxHash, 'ahoy');
+        $this->assertEquals(1, $this->message->bcc->count());
+        $this->assertEquals('sample.bcc+ahoy@inbound.postmarkapp.com', $this->message->bcc->first()->email);
+        $this->assertEquals('Full name Bcc', $this->message->bcc->first()->name);
+        $this->assertEquals('ahoy', $this->message->bcc->first()->mailboxHash);
     }
 
     /** @test */
     public function message_has_a_subject()
     {
-        $this->assertEquals($this->message->subject, 'Postmark inbound message test');
+        $this->assertEquals('Postmark inbound message test', $this->message->subject);
     }
 
     /** @test */
     public function message_has_an_id()
     {
-        $this->assertEquals($this->message->messageId, 'a123456-b1234-c123456-d1234');
+        $this->assertEquals('a123456-b1234-c123456-d1234', $this->message->messageId);
     }
 
     /** @test */
     public function message_has_a_tag()
     {
-        $this->assertEquals($this->message->tag, 'test-tag');
+        $this->assertEquals('test-tag', $this->message->tag);
     }
 
     /** @test */
     public function message_has_an_original_recipient()
     {
-        $this->assertEquals($this->message->originalRecipient, '1234+ahoy@inbound.postmarkapp.com');
+        $this->assertEquals('1234+ahoy@inbound.postmarkapp.com', $this->message->originalRecipient);
     }
 
     /** @test */
     public function message_has_a_text_body()
     {
-        $this->assertEquals($this->message->textBody, '[ASCII]');
+        $this->assertEquals('[ASCII]', $this->message->textBody);
     }
 
     /** @test */
     public function message_has_a_html_body()
     {
-        $this->assertEquals($this->message->htmlBody, '<html></html>');
+        $this->assertEquals('<html></html>', $this->message->htmlBody);
     }
 
     /** @test */
     public function message_has_stripped_text_reply()
     {
-        $this->assertEquals($this->message->strippedTextReply, 'Okay, thank you for testing this inbound message!');
+        $this->assertEquals('Okay, thank you for testing this inbound message!', $this->message->strippedTextReply);
     }
 
     /** @test */
     public function message_has_a_reply_to_address()
     {
-        $this->assertEquals($this->message->replyTo, 'reply-to@example.com');
+        $this->assertEquals('reply-to@example.com', $this->message->replyTo);
     }
 
     /** @test */
     public function message_has_headers()
     {
-        $this->assertEquals($this->message->headers->count(), 8);
-        $this->assertEquals($this->message->headers->get('Message-ID'), '<test-messag-id@mail.example.com>');
-        $this->assertEquals($this->message->headers->get('MIME-Version'), '1.0');
-        $this->assertEquals($this->message->headers->get('Received-SPF'), 'Pass (sender SPF authorized)');
-        $this->assertEquals($this->message->headers->get('X-Spam-Score'), '-0.1');
-        $this->assertEquals($this->message->headers->get('X-Spam-Status'), 'No');
-        $this->assertEquals($this->message->headers->get('X-Spam-Tests'), 'DKIM_SIGNED,DKIM_VALID,SPF_PASS');
-        $this->assertEquals($this->message->headers->get('X-Spam-Checker-Version'), 'SpamAssassin 3.3.1');
+        $this->assertEquals(8, $this->message->headers->count());
+        $this->assertEquals('<test-messag-id@mail.example.com>', $this->message->headers->get('Message-ID'));
+        $this->assertEquals('1.0', $this->message->headers->get('MIME-Version'));
+        $this->assertEquals('Pass (sender SPF authorized)', $this->message->headers->get('Received-SPF'));
+        $this->assertEquals('-0.1', $this->message->headers->get('X-Spam-Score'));
+        $this->assertEquals('No', $this->message->headers->get('X-Spam-Status'));
+        $this->assertEquals('DKIM_SIGNED,DKIM_VALID,SPF_PASS', $this->message->headers->get('X-Spam-Tests'));
+        $this->assertEquals('SpamAssassin 3.3.1', $this->message->headers->get('X-Spam-Checker-Version'));
     }
 
     /** @test */
     public function message_has_attachments()
     {
-        $this->assertEquals($this->message->attachments->count(), 2);
+        $this->assertEquals(2, $this->message->attachments->count());
 
         $attachment = $this->message->attachments->first();
         $this->assertEquals('myimage.png', $attachment->name);
@@ -172,7 +172,7 @@ class InboundMessageTest extends TestCase
     public function message_has_no_attachments_when_not_present_in_json_payload()
     {
         $this->message = new InboundMessage(file_get_contents('./tests/fixtures/inbound-camelcase-message-id.json'));
-        $this->assertEquals($this->message->attachments->count(), 0);
+        $this->assertEquals(0, $this->message->attachments->count());
     }
 
     /** @test */

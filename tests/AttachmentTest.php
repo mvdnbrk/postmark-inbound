@@ -11,10 +11,10 @@ class AttachmentTest extends TestCase
     public function attachment_is_constructed()
     {
         $a = new Attachment('test.txt', 'some-unqiue-id', 'plain/text', 8, 'dGVzdA==');
-        $this->assertEquals($a->name, 'test.txt');
-        $this->assertEquals($a->contentId, 'some-unqiue-id');
-        $this->assertEquals($a->contentType, 'plain/text');
-        $this->assertEquals($a->contentLength, 8);
-        $this->assertEquals($a->content(), 'test');
+        $this->assertEquals('test.txt', $a->name);
+        $this->assertEquals('some-unqiue-id', $a->contentId);
+        $this->assertEquals('plain/text', $a->contentType);
+        $this->assertEquals(8, $a->contentLength);
+        $this->assertEquals('test', $a->content());
     }
 }
