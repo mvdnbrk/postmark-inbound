@@ -5,11 +5,17 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
+## [2.1.0] - 2018-04-25
+
 ### Added
-- Added getTimzoneAttribute method.
-- Added getUtcDateAttribute method.
-- Added a test for invalid dates.
-- Added a test for unknown getters.
+- Added getTimzoneAttribute method. [`278de17`](https://github.com/mvdnbrk/postmark-inbound/commit/278de1734bcd46bd62150860fa536f3e3536170b)
+- Added getUtcDateAttribute method. [`832ad99`](https://github.com/mvdnbrk/postmark-inbound/commit/832ad99a4df49f83dc73e6be92e0a63fa6cf7c01)
+- Added a test for invalid dates. [`99c31a5`](https://github.com/mvdnbrk/postmark-inbound/commit/99c31a5c6e9452673035cc04ac03897a4528e922)
+- Added a test for unknown getters. [`f922f19`](https://github.com/mvdnbrk/postmark-inbound/commit/f922f1998b7800f3acfdfba6873985bed6f9daa7)
+- Added property annotations. [`c134957`](https://github.com/mvdnbrk/postmark-inbound/commit/c13495714fabdea25b3585e67954004fabdf77b2)
+
+### Removed
+- Removed support for PHP 5.6. [`2400cd8`](https://github.com/mvdnbrk/postmark-inbound/commit/2400cd83dcabaa6d7e86a14ebb98509f28c4c347)
 
 ## [2.0.0] - 2017-11-07
 
@@ -57,7 +63,8 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 - Code style fixes. [`7c8eb86`](https://github.com/mvdnbrk/postmark-inbound/commit/7c8eb86cbf9719fbb568160decf4ae8dc735ce98)
 - PHPUnit minimum version set to 5.4.3. [`c2331a4`](https://github.com/mvdnbrk/postmark-inbound/commit/c2331a48557ef88f67b2a7df1176cccf05a2b3e8)
 
-[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v1.0.5...v2.0.0
 [1.0.5]: https://github.com/mvdnbrk/postmark-inbound/compare/v1.0.4...v1.0.5
 [1.0.4]: https://github.com/mvdnbrk/postmark-inbound/compare/v1.0.3...v1.0.4
