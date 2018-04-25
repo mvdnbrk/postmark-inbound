@@ -21,6 +21,13 @@ class InboundMessageTest extends TestCase
     }
 
     /** @test */
+    public function a_valid_date_is_required()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        new InboundMessage('{"Date": "invalid-date"}');
+    }
+
+    /** @test */
     public function message_has_a_date()
     {
         $this->assertEquals($this->message->date, 'Wed, 6 Sep 2017 19:11:00 +0200');

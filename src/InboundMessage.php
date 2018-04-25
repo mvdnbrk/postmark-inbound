@@ -40,6 +40,10 @@ class InboundMessage
             DateTime::RFC2822,
             $this->date
         );
+
+        if ($this->datetime === false) {
+            throw new \InvalidArgumentException('Date: ' . $this->date . ' is not a valid value.');
+        }
     }
 
     /**
