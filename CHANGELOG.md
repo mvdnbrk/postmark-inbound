@@ -5,6 +5,8 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
+## [2.1.1] - 2018-04-25
+
 ### Added
 - Added has method to Collection class. [`3e012ae`](https://github.com/mvdnbrk/postmark-inbound/commit/3e012aed7f748590267dda149408fef6999c2102)
 - Added a test for messages with an empty subject. [`3599155`](https://github.com/mvdnbrk/postmark-inbound/commit/359915511a4a377cf5825e73fc1e88c2d9987d30)
@@ -71,7 +73,8 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 - Code style fixes. [`7c8eb86`](https://github.com/mvdnbrk/postmark-inbound/commit/7c8eb86cbf9719fbb568160decf4ae8dc735ce98)
 - PHPUnit minimum version set to 5.4.3. [`c2331a4`](https://github.com/mvdnbrk/postmark-inbound/commit/c2331a48557ef88f67b2a7df1176cccf05a2b3e8)
 
-[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.1.1...HEAD
+[2.1.1]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v1.0.5...v2.0.0
 [1.0.5]: https://github.com/mvdnbrk/postmark-inbound/compare/v1.0.4...v1.0.5
