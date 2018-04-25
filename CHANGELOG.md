@@ -6,11 +6,11 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 ## [Unreleased]
 
 ### Added
-- Added has method to Collection class.
-- Added a test for messages with an empty subject.
+- Added has method to Collection class. [`3e012ae`](https://github.com/mvdnbrk/postmark-inbound/commit/3e012aed7f748590267dda149408fef6999c2102)
+- Added a test for messages with an empty subject. [`3599155`](https://github.com/mvdnbrk/postmark-inbound/commit/359915511a4a377cf5825e73fc1e88c2d9987d30)
 
 ### Fixed
-- Fixes getter to check if it has a key.
+- Fixes getter to check if it has a key. [`2590abb`](https://github.com/mvdnbrk/postmark-inbound/commit/2590abb8e97cfb913bf377440eed653185891a6d)
 - Fixes tests to match expected/actual pattern. [`41b7910`](https://github.com/mvdnbrk/postmark-inbound/commit/41b791044a732b301588ea5de5d55a7f9990edf2)
 
 ## [2.1.0] - 2018-04-25
