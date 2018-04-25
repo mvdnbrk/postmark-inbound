@@ -127,7 +127,8 @@ class InboundMessage
      */
     public function getUtcDateAttribute()
     {
-        return (clone $this->datetime)->setTimezone(new DateTimeZone('UTC'))->format('Y-m-d H:i:s');;
+        return (clone $this->datetime)->setTimezone(new DateTimeZone('UTC'))->format('Y-m-d H:i:s');
+        ;
     }
 
     /**
