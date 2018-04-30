@@ -349,6 +349,18 @@ class Collection implements ArrayAccess, Countable
     }
 
     /**
+     * Slice the underlying collection array.
+     *
+     * @param  int  $offset
+     * @param  int  $length
+     * @return static
+     */
+    public function slice($offset, $length = null)
+    {
+        return new static(array_slice($this->items, $offset, $length, true));
+    }
+
+    /**
      * Get the collection of items as a plain array.
      *
      * @return array

@@ -282,6 +282,48 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
+    public function slice_offset()
+    {
+        $c = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([4, 5, 6, 7, 8], $c->slice(3)->values()->toArray());
+    }
+
+    /** @test */
+    public function slice_negative_offset()
+    {
+        $c = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([6, 7, 8], $c->slice(-3)->values()->toArray());
+    }
+
+    /** @test */
+    public function slice_offset_and_length()
+    {
+        $c = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([4, 5, 6], $c->slice(3, 3)->values()->toArray());
+    }
+
+    /** @test */
+    public function slice_offset_and_negative_length()
+    {
+        $c = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([4, 5, 6, 7], $c->slice(3, -1)->values()->toArray());
+    }
+
+    /** @test */
+    public function slice_negative_offset_and_length()
+    {
+        $c = new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([4, 5, 6], $c->slice(-5, 3)->values()->toArray());
+    }
+
+    /** @test */
+    public function slice_negative_offset_and_negative_length()
+    {
+        $c= new Collection([1, 2, 3, 4, 5, 6, 7, 8]);
+        $this->assertEquals([3, 4, 5, 6], $c->slice(-6, -2)->values()->toArray());
+    }
+
+    /** @test */
     public function values()
     {
         $c = new Collection([['id' => 1, 'name' => 'Hello'], ['id' => 2, 'name' => 'World']]);
