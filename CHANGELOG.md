@@ -4,9 +4,23 @@ All notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
+## [2.3.0] - 2018-04-30
+
+### Added
+- Added a method to get the original date posted by Postmark. [`68ac952`](https://github.com/mvdnbrk/postmark-inbound/commit/68ac95227a5363d96eed79cf584e4dc778204bf2)
+- Added an implode method to Collection class. [`0c81e54`](https://github.com/mvdnbrk/postmark-inbound/commit/0c81e54ade9ad25a63203f88575bef8cec214746)
+- Added a take method to Collection class. [`67afee3`](https://github.com/mvdnbrk/postmark-inbound/commit/67afee3fe7d4977aacfd611faa427e9003a4b21d)
+- Added a slice method to Collection class. [`bdb5f136`](https://github.com/mvdnbrk/postmark-inbound/commit/bdb5f1362929d5876d32bc7175338ae0d27fa35c)
 - Added a contains method to Collection class. [`debf4a6`](https://github.com/mvdnbrk/postmark-inbound/commit/debf4a65dce2c8aa412a1d4afb5778c17387ee22)
 - Added a reject method to Collection class. [`79c1451`](https://github.com/mvdnbrk/postmark-inbound/commit/79c1451b3028ea7170d9b9d068d70e8b84bdcc83)
 - Added a filter and values method to Collection class. [`c957ae7`](https://github.com/mvdnbrk/postmark-inbound/commit/c957ae7c132d8f41d9a210260cfae4e80ce25942)
+
+### Fixed
+- Fixes an issue with incorrect date formats posted by Postmark. [`a656033`](https://github.com/mvdnbrk/postmark-inbound/commit/a656033e2fafa8b0fa3ea594f84403704c7ff9d6)
+
+
+### Changed
+- Updated README. [`2653a8f`](https://github.com/mvdnbrk/postmark-inbound/commit/2653a8f431a89b18f8002f2cc353aa7ab303ba0b)
 
 ## [2.2.0] - 2018-04-30
 
@@ -85,7 +99,8 @@ All notable changes to `postmark-inbound` will be documented in this file.
 - Code style fixes. [`7c8eb86`](https://github.com/mvdnbrk/postmark-inbound/commit/7c8eb86cbf9719fbb568160decf4ae8dc735ce98)
 - PHPUnit minimum version set to 5.4.3. [`c2331a4`](https://github.com/mvdnbrk/postmark-inbound/commit/c2331a48557ef88f67b2a7df1176cccf05a2b3e8)
 
-[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.2.0...HEAD
+[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.0...HEAD
+[2.3.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.1.1...v2.2.0
 [2.1.1]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.0.0...v2.1.0
