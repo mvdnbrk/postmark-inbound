@@ -117,6 +117,21 @@ class Collection implements ArrayAccess, Countable
     }
 
     /**
+     * Run a filter over each of the items.
+     *
+     * @param  callable|null  $callback
+     * @return static
+     */
+    public function filter(callable $callback = null)
+    {
+        if ($callback) {
+            return new static(array_filter($this->items, $callback, ARRAY_FILTER_USE_BOTH));
+        }
+
+        return new static(array_filter($this->items));
+    }
+
+    /**
      * Get an item from the collection by key.
      *
      * @param  mixed  $key
@@ -241,5 +256,15 @@ class Collection implements ArrayAccess, Countable
     public function toArray()
     {
         return $this->items;
+    }
+
+    /**
+     * Reset the keys on the underlying array.
+     *
+     * @return static
+     */
+    public function values()
+    {
+        return new static(array_values($this->items));
     }
 }

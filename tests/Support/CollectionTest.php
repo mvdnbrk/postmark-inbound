@@ -77,6 +77,23 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
+    public function filter()
+    {
+        $c = new Collection([['id' => 1, 'name' => 'Hello'], ['id' => 2, 'name' => 'World']]);
+        $this->assertEquals([1 => ['id' => 2, 'name' => 'World']], $c->filter(function ($item) {
+            return $item['id'] == 2;
+        })->all());
+
+        $c = new Collection(['', 'Hello', '', 'World']);
+        $this->assertEquals(['Hello', 'World'], $c->filter()->values()->toArray());
+
+        $c = new Collection(['id' => 1, 'first' => 'Hello', 'second' => 'World']);
+        $this->assertEquals(['first' => 'Hello', 'second' => 'World'], $c->filter(function ($item, $key) {
+            return $key != 'id';
+        })->all());
+    }
+
+    /** @test */
     public function first_returns_first_item_in_collection()
     {
         $c = new Collection(['foo', 'bar']);
@@ -186,5 +203,15 @@ class CollectionTest extends TestCase
             ['Blastoise' => 'Water', 'Charmander' => 'Fire', 'Dragonair' => 'Dragon'],
             $data->all()
         );
+    }
+
+    /** @test */
+    public function values()
+    {
+        $c = new Collection([['id' => 1, 'name' => 'Hello'], ['id' => 2, 'name' => 'World']]);
+
+        $this->assertEquals([['id' => 2, 'name' => 'World']], $c->filter(function ($item) {
+            return $item['id'] == 2;
+        })->values()->all());
     }
 }
