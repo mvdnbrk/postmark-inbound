@@ -5,6 +5,15 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
+## [2.2.0] - 2018-04-30
+
+### Fixed
+- Fixed namespace. [`570c649`](https://github.com/mvdnbrk/postmark-inbound/commit/570c649bb05f135bd346ff8e761394a9c938e7f2), [`73d8080`](https://github.com/mvdnbrk/postmark-inbound/commit/73d8080070fcb2d7fcc978b9629052fcac5f5c1d)
+- Fixed typo. [`6752e8b`](https://github.com/mvdnbrk/postmark-inbound/commit/6752e8b534378425a2aa6482333a1b78044d1ce8)
+
+### Removed
+- Dropped support for PHP 7.0. [`bec06b8`](https://github.com/mvdnbrk/postmark-inbound/commit/bec06b821783297ec9473e108f38aa9daa6916c1)
+
 ## [2.1.1] - 2018-04-25
 
 ### Added
@@ -73,7 +82,8 @@ All Notable changes to `postmark-inbound` will be documented in this file.
 - Code style fixes. [`7c8eb86`](https://github.com/mvdnbrk/postmark-inbound/commit/7c8eb86cbf9719fbb568160decf4ae8dc735ce98)
 - PHPUnit minimum version set to 5.4.3. [`c2331a4`](https://github.com/mvdnbrk/postmark-inbound/commit/c2331a48557ef88f67b2a7df1176cccf05a2b3e8)
 
-[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.1.1...HEAD
+[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.1.1...v2.2.0
 [2.1.1]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v1.0.5...v2.0.0
