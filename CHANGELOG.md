@@ -4,6 +4,9 @@ All notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
+- Added a reject method to Collection class. [`79c1451`](https://github.com/mvdnbrk/postmark-inbound/commit/79c1451b3028ea7170d9b9d068d70e8b84bdcc83)
+- Added a filter and values method to Collection class. [`c957ae7`](https://github.com/mvdnbrk/postmark-inbound/commit/c957ae7c132d8f41d9a210260cfae4e80ce25942)
+
 ## [2.2.0] - 2018-04-30
 
 ### Fixed
