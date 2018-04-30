@@ -206,6 +206,34 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
+    public function reject_removes_elements_passing_truth_test()
+    {
+        $c = new Collection(['foo', 'bar']);
+        $this->assertEquals(['foo'], $c->reject('bar')->values()->all());
+
+        $c = new Collection(['foo', 'bar']);
+        $this->assertEquals(['foo'], $c->reject(function ($v) {
+            return $v == 'bar';
+        })->values()->all());
+
+        $c = new Collection(['foo', null]);
+        $this->assertEquals(['foo'], $c->reject(null)->values()->all());
+
+        $c = new Collection(['foo', 'bar']);
+        $this->assertEquals(['foo', 'bar'], $c->reject('baz')->values()->all());
+
+        $c = new Collection(['foo', 'bar']);
+        $this->assertEquals(['foo', 'bar'], $c->reject(function ($v) {
+            return $v == 'baz';
+        })->values()->all());
+
+        $c = new Collection(['id' => 1, 'primary' => 'foo', 'secondary' => 'bar']);
+        $this->assertEquals(['primary' => 'foo', 'secondary' => 'bar'], $c->reject(function ($item, $key) {
+            return $key == 'id';
+        })->all());
+    }
+
+    /** @test */
     public function values()
     {
         $c = new Collection([['id' => 1, 'name' => 'Hello'], ['id' => 2, 'name' => 'World']]);

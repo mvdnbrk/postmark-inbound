@@ -249,6 +249,25 @@ class Collection implements ArrayAccess, Countable
     }
 
     /**
+     * Create a collection of all elements that do not pass a given truth test.
+     *
+     * @param  callable|mixed  $callback
+     * @return static
+     */
+    public function reject($callback)
+    {
+        if ($this->useAsCallable($callback)) {
+            return $this->filter(function ($value, $key) use ($callback) {
+                return ! $callback($value, $key);
+            });
+        }
+
+        return $this->filter(function ($item) use ($callback) {
+            return $item != $callback;
+        });
+    }
+
+    /**
      * Get the collection of items as a plain array.
      *
      * @return array
@@ -256,6 +275,17 @@ class Collection implements ArrayAccess, Countable
     public function toArray()
     {
         return $this->items;
+    }
+
+    /**
+     * Determine if the given value is callable, but not a string.
+     *
+     * @param  mixed  $value
+     * @return bool
+     */
+    protected function useAsCallable($value)
+    {
+        return ! is_string($value) && is_callable($value);
     }
 
     /**
