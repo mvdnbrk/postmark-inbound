@@ -234,6 +234,17 @@ class Collection implements ArrayAccess, Countable
     }
 
     /**
+     * Concatenate values of a given key as a string.
+     *
+     * @param  string  $seperator
+     * @return string
+     */
+    public function implode($seperator)
+    {
+        return implode($seperator, $this->items);
+    }
+
+    /**
      * Get the last item from the collection.
      *
      * @param  mixed  $default

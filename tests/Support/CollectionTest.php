@@ -197,6 +197,14 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
+    public function implode()
+    {
+        $c = new Collection(['foo', 'bar']);
+        $this->assertEquals('foobar', $c->implode(''));
+        $this->assertEquals('foo,bar', $c->implode(','));
+    }
+
+    /** @test */
     public function each()
     {
         $c = new Collection($original = [1, 2, 'foo' => 'bar', 'bam' => 'baz']);
