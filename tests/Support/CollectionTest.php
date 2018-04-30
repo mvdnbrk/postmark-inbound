@@ -1,6 +1,6 @@
 <?php
 
-namespace Mvdnbrk\Postmark\Test\Collection;
+namespace Mvdnbrk\Postmark\Tests\Support;
 
 use PHPUnit\Framework\TestCase;
 use Mvdnbrk\Postmark\Support\Collection;
