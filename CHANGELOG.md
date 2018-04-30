@@ -1,7 +1,6 @@
 # Changelog
 
-All Notable changes to `postmark-inbound` will be documented in this file.
-
+All notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
