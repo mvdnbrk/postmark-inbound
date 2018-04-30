@@ -2,6 +2,7 @@
 
 namespace Mvdnbrk\Postmark\Support;
 
+use stdClass;
 use Countable;
 use ArrayAccess;
 
@@ -117,6 +118,45 @@ class Collection implements ArrayAccess, Countable
     }
 
     /**
+     * Determine if an item exists in the collection.
+     *
+     * @param  mixed  $key
+     * @param  mixed  $operator
+     * @param  mixed  $value
+     * @return bool
+     */
+    public function contains($key, $operator = null, $value = null)
+    {
+        if (func_num_args() == 1) {
+            if ($this->useAsCallable($key)) {
+                $placeholder = new stdClass;
+                return $this->first($key, $placeholder) !== $placeholder;
+            }
+
+            return in_array($key, $this->items);
+        }
+
+        return $this->contains($this->operatorForWhere(...func_get_args()));
+    }
+
+    /**
+     * Execute a callback over each item.
+     *
+     * @param  callable  $callback
+     * @return $this
+     */
+    public function each(callable $callback)
+    {
+        foreach ($this->items as $key => $item) {
+            if ($callback($item, $key) === false) {
+                break;
+            }
+        }
+
+        return $this;
+    }
+
+    /**
      * Run a filter over each of the items.
      *
      * @param  callable|null  $callback
@@ -129,6 +169,33 @@ class Collection implements ArrayAccess, Countable
         }
 
         return new static(array_filter($this->items));
+    }
+
+    /**
+     * Get the first item from the collection.
+     *
+     * @param  callable|null  $callback
+     * @param  mixed  $default
+     * @return mixed
+     */
+    public function first(callable $callback = null, $default = null)
+    {
+        if (is_null($callback)) {
+            if (empty($this->items)) {
+                return $default;
+            }
+            foreach ($this->items as $item) {
+                return $item;
+            }
+        }
+
+        foreach ($this->items as $key => $value) {
+            if (call_user_func($callback, $value, $key)) {
+                return $value;
+            }
+        }
+
+        return $default;
     }
 
     /**
@@ -164,40 +231,6 @@ class Collection implements ArrayAccess, Countable
         }
 
         return true;
-    }
-
-    /**
-     * Execute a callback over each item.
-     *
-     * @param  callable  $callback
-     * @return $this
-     */
-    public function each(callable $callback)
-    {
-        foreach ($this->items as $key => $item) {
-            if ($callback($item, $key) === false) {
-                break;
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * Get the first item from the collection.
-     *
-     * @param  mixed  $default
-     * @return mixed
-     */
-    public function first($default = null)
-    {
-        if (empty($this->items)) {
-            return $default;
-        }
-
-        foreach ($this->items as $item) {
-            return $item;
-        }
     }
 
     /**
@@ -246,6 +279,46 @@ class Collection implements ArrayAccess, Countable
         }
 
         return new static($result);
+    }
+
+    /**
+     * Get an operator checker callback.
+     *
+     * @param  string  $key
+     * @param  string  $operator
+     * @param  mixed  $value
+     * @return \Closure
+     */
+    protected function operatorForWhere($key, $operator, $value = null)
+    {
+        if (func_num_args() == 2) {
+            $value = $operator;
+            $operator = '=';
+        }
+
+        return function ($item) use ($key, $operator, $value) {
+            $strings = array_filter([$item, $value], function ($value) {
+                return is_string($value) || (is_object($value) && method_exists($value, '__toString'));
+            });
+
+            if (count($strings) < 2 && count(array_filter([$item, $value], 'is_object')) == 1) {
+                return in_array($operator, ['!=', '<>', '!==']);
+            }
+
+            switch ($operator) {
+                default:
+                case '=':
+                case '==':  return $item == $value;
+                case '!=':
+                case '<>':  return $item != $value;
+                case '<':   return $item < $value;
+                case '>':   return $item > $value;
+                case '<=':  return $item <= $value;
+                case '>=':  return $item >= $value;
+                case '===': return $item === $value;
+                case '!==': return $item !== $value;
+            }
+        };
     }
 
     /**

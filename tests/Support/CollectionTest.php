@@ -77,6 +77,30 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
+    public function contains_method()
+    {
+        $c = new Collection([1, 3, 5]);
+        $this->assertTrue($c->contains(1));
+        $this->assertFalse($c->contains(2));
+        $this->assertTrue($c->contains(function ($value) {
+            return $value < 5;
+        }));
+        $this->assertFalse($c->contains(function ($value) {
+            return $value > 5;
+        }));
+
+        $c = new Collection(['date', 'class', (object) ['foo' => 50]]);
+        $this->assertTrue($c->contains('date'));
+        $this->assertTrue($c->contains('class'));
+        $this->assertFalse($c->contains('foo'));
+
+        $c = new Collection([null, 1, 2,]);
+        $this->assertTrue($c->contains(function ($value) {
+            return is_null($value);
+        }));
+    }
+
+    /** @test */
     public function filter()
     {
         $c = new Collection([['id' => 1, 'name' => 'Hello'], ['id' => 2, 'name' => 'World']]);
@@ -101,10 +125,34 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
-    public function first_with_default()
+    public function first_with_callback()
+    {
+        $data = new Collection(['foo', 'bar', 'baz']);
+
+        $result = $data->first(function ($value) {
+            return $value === 'bar';
+        });
+
+        $this->assertEquals('bar', $result);
+    }
+
+    /** @test */
+    public function first_with_callback_and_default()
+    {
+        $data = new Collection(['foo', 'bar']);
+
+        $result = $data->first(function ($value) {
+            return $value === 'baz';
+        }, 'default');
+
+        $this->assertEquals('default', $result);
+    }
+
+    /** @test */
+    public function first_with_default_and_without_callback()
     {
         $data = new Collection;
-        $result = $data->first('default');
+        $result = $data->first(null, 'default');
         $this->assertEquals('default', $result);
     }
 
