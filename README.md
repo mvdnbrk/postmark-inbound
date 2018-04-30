@@ -37,6 +37,7 @@ $inbound->originalRecipient;
 
 $inbound->date;                     // Wed, 6 Sep 2017 19:11:00 +0200
 $inbound->utcDate;                  // 2017-09-06 17:11:00
+$inbound->originalDate;             // Wed, 6 Sep 2017 19:11:00 +0200
 $inbound->timezone;                 // +02:00
 $inbound->subject;                  // Subject of the message
 

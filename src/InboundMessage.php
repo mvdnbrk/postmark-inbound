@@ -187,6 +187,16 @@ class InboundMessage
     }
 
     /**
+     * Retrieve the original date value from the message.
+     *
+     * @return string
+     */
+    public function getOriginalDateAttribute()
+    {
+        return $this->data->get('Date');
+    }
+
+    /**
      * Parse contacts and return a collection of contacts.
      *
      * @param  array  $contacts

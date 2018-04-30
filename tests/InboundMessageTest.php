@@ -41,6 +41,12 @@ class InboundMessageTest extends TestCase
     }
 
     /** @test */
+    public function can_get_the_original_date_from_the_message()
+    {
+        $this->assertEquals('Wed, 6 Sep 2017 19:11:00 +0200', $this->message->originalDate);
+    }
+
+    /** @test */
     public function message_has_a_timezone()
     {
         $this->assertEquals('+02:00', $this->message->timezone);
