@@ -76,8 +76,8 @@ class PostmarkDate extends DateTime
         return new static($date->reject(function ($value) {
             return self::getAbbreviatedDaysCollection()->contains(trim($value, ','));
         })
-            ->take(5)
-            ->implode(' '));
+        ->take(5)
+        ->implode(' '));
     }
 
     /**
