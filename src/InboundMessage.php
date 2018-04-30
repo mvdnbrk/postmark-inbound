@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeZone;
 use Mvdnbrk\Postmark\Contact;
 use Mvdnbrk\Postmark\Support\Collection;
+use Mvdnbrk\Postmark\Support\PostmarkDate;
 
 /**
  * API to process Postmark Inbound Webhooks.
@@ -41,7 +42,7 @@ class InboundMessage
     /*
      * DateTime when the message was reveived,
      *
-     * @var DateTime
+     * @var \Mvdnbrk\Postmark\Support\PostmarkDate
      */
     protected $datetime;
 
@@ -59,14 +60,7 @@ class InboundMessage
             throw new \InvalidArgumentException('You must provide a valid JSON source.');
         }
 
-        $this->datetime = DateTime::createFromFormat(
-            DateTime::RFC2822,
-            $this->data->get('Date')
-        );
-
-        if ($this->datetime === false) {
-            throw new \InvalidArgumentException('Date: ' . $this->date . ' is not a valid value.');
-        }
+        $this->datetime = PostmarkDate::parse($this->data->get('Date'));
     }
 
     /**
@@ -146,11 +140,11 @@ class InboundMessage
     /**
      * Retrieve the UTC date from the message.
      *
-     * @return string
+     * @return \Mvdnbrk\Postmark\Support\PostmarkDate
      */
-    public function getUtcDateAttribute()
+    public function getDateAttribute()
     {
-        return (clone $this->datetime)->setTimezone(new DateTimeZone('UTC'))->format('Y-m-d H:i:s');
+        return $this->datetime;
     }
 
     /**

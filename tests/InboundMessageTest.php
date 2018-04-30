@@ -2,8 +2,9 @@
 
 namespace Mvdnbrk\Postmark\Tests;
 
-use Mvdnbrk\Postmark\InboundMessage;
 use PHPUnit\Framework\TestCase;
+use Mvdnbrk\Postmark\InboundMessage;
+use Mvdnbrk\Postmark\Support\PostmarkDate;
 
 class InboundMessageTest extends TestCase
 {
@@ -23,7 +24,7 @@ class InboundMessageTest extends TestCase
     /** @test */
     public function a_valid_date_is_required()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(\Exception::class);
         new InboundMessage('{"Date": "invalid-date"}');
     }
 
@@ -37,7 +38,8 @@ class InboundMessageTest extends TestCase
     /** @test */
     public function message_has_a_date()
     {
-        $this->assertEquals('Wed, 6 Sep 2017 19:11:00 +0200', $this->message->date);
+        $this->assertInstanceOf(PostmarkDate::class, $this->message->date);
+        $this->assertEquals('2017-09-06 19:11:00 +0200', $this->message->date->format('Y-m-d H:i:s O'));
     }
 
     /** @test */
@@ -49,13 +51,6 @@ class InboundMessageTest extends TestCase
     /** @test */
     public function message_has_a_timezone()
     {
-        $this->assertEquals('+02:00', $this->message->timezone);
-    }
-
-    /** @test */
-    public function message_has_utc_date()
-    {
-        $this->assertEquals('2017-09-06 17:11:00', $this->message->utcDate);
         $this->assertEquals('+02:00', $this->message->timezone);
     }
 
@@ -105,6 +100,16 @@ class InboundMessageTest extends TestCase
     {
         $this->message = new InboundMessage('{"Date": "Wed, 6 Sep 2017 19:11:00 +0200", "Subject": ""}');
         $this->assertEmpty($this->message->subject);
+    }
+
+    /** @test */
+    public function incorrect_date_formats_posted_by_postmark_should_pass()
+    {
+        $this->message = new InboundMessage('{"Date": "Fri, 27 Apr 2018 19:00:00 +0200 (CEST)"}');
+        $this->assertEquals('2018-04-27 19:00:00', $this->message->date->format('Y-m-d H:i:s'));
+
+        $this->message = new InboundMessage('{"Date": "Fri, 27 Apr 2018 19:00:00 +0100 (West-Europe (stand"}');
+        $this->assertEquals('2018-04-27 19:00:00', $this->message->date->format('Y-m-d H:i:s'));
     }
 
     /** @test */
