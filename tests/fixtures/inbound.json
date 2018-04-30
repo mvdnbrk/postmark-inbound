@@ -76,7 +76,7 @@
     },
     {
       "Name": "Message-ID",
-      "Value": "<test-messag-id@mail.example.com>"
+      "Value": "<test-message-id@mail.example.com>"
     }
   ],
   "Attachments": [

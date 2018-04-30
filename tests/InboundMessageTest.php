@@ -147,7 +147,7 @@ class InboundMessageTest extends TestCase
     public function message_has_headers()
     {
         $this->assertEquals(8, $this->message->headers->count());
-        $this->assertEquals('<test-messag-id@mail.example.com>', $this->message->headers->get('Message-ID'));
+        $this->assertEquals('<test-message-id@mail.example.com>', $this->message->headers->get('Message-ID'));
         $this->assertEquals('1.0', $this->message->headers->get('MIME-Version'));
         $this->assertEquals('Pass (sender SPF authorized)', $this->message->headers->get('Received-SPF'));
         $this->assertEquals('-0.1', $this->message->headers->get('X-Spam-Score'));
@@ -185,9 +185,9 @@ class InboundMessageTest extends TestCase
     /** @test */
     public function get_message_id_from_headers()
     {
-        $this->assertEquals('<test-messag-id@mail.example.com>', $this->message->messageIdFromHeaders);
+        $this->assertEquals('<test-message-id@mail.example.com>', $this->message->messageIdFromHeaders);
 
         $this->message = new InboundMessage(file_get_contents('./tests/fixtures/inbound-camelcase-message-id.json'));
-        $this->assertEquals('<test-messag-id@mail.example.com>', $this->message->messageIdFromHeaders);
+        $this->assertEquals('<test-message-id@mail.example.com>', $this->message->messageIdFromHeaders);
     }
 }
