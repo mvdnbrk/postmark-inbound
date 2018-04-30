@@ -39,7 +39,6 @@ $inbound->originalDate;                 // Wed, 6 Sep 2017 12:00:00 +0200
 $inbound->date;                         // PostmarkDate::class which is an extension of the DateTime::class
 $inbound->date->format('Y-m-d H:i:s')   // 2017-09-06 12:00:00
 $inbound->date->isUtc                   // boolean, is the date in the UTC timezone?
-$inbound->date->utc;                    // 2017-09-06 10:00:00
 $inbound->date->timezone;               // +02:00
 $inbound->date->inUtcTimezone()         // Sets the timezone to UTC.
 $inbound->subject;                      // Subject of the message.
