@@ -33,7 +33,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Mvdnbrk\\Postmark\\Test\\": "tests"
+            "Mvdnbrk\\Postmark\\Tests\\": "tests"
         }
     },
     "scripts": {

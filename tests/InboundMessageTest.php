@@ -1,6 +1,6 @@
 <?php
 
-namespace Mvdnbrk\Postmark\Test;
+namespace Mvdnbrk\Postmark\Tests;
 
 use Mvdnbrk\Postmark\InboundMessage;
 use PHPUnit\Framework\TestCase;

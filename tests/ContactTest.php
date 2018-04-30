@@ -1,6 +1,6 @@
 <?php
 
-namespace Mvdnbrk\Postmark\Test;
+namespace Mvdnbrk\Postmark\Tests;
 
 use Mvdnbrk\Postmark\Contact;
 use PHPUnit\Framework\TestCase;
