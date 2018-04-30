@@ -308,15 +308,23 @@ class Collection implements ArrayAccess, Countable
             switch ($operator) {
                 default:
                 case '=':
-                case '==':  return $item == $value;
+                case '==':
+                    return $item == $value;
                 case '!=':
-                case '<>':  return $item != $value;
-                case '<':   return $item < $value;
-                case '>':   return $item > $value;
-                case '<=':  return $item <= $value;
-                case '>=':  return $item >= $value;
-                case '===': return $item === $value;
-                case '!==': return $item !== $value;
+                case '<>':
+                    return $item != $value;
+                case '<':
+                    return $item < $value;
+                case '>':
+                    return $item > $value;
+                case '<=':
+                    return $item <= $value;
+                case '>=':
+                    return $item >= $value;
+                case '===':
+                    return $item === $value;
+                case '!==':
+                    return $item !== $value;
             }
         };
     }
