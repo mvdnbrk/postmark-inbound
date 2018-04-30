@@ -324,6 +324,22 @@ class CollectionTest extends TestCase
     }
 
     /** @test */
+    public function take()
+    {
+        $c = new Collection(['foo', 'bar', 'baz']);
+        $c = $c->take(2);
+        $this->assertEquals(['foo', 'bar'], $c->all());
+    }
+
+    /** @test */
+    public function take_negative_limit()
+    {
+        $c = new Collection(['foo', 'bar', 'baz']);
+        $c = $c->take(-2);
+        $this->assertEquals(['bar', 'baz'], $c->values()->toArray());
+    }
+
+    /** @test */
     public function values()
     {
         $c = new Collection([['id' => 1, 'name' => 'Hello'], ['id' => 2, 'name' => 'World']]);
