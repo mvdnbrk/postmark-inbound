@@ -22,32 +22,35 @@ $ composer require mvdnbrk/postmark-inbound
 ``` php
 $inbound = new \Mvdnbrk\Postmark\InboundMessage(file_get_contents('php://input'));
 
-$inbound->from->name;               // John Doe
-$inbound->from->email;              // john@example.com
-$inbound->from->full;               // John Doe <john@example.com>
+$inbound->from->name;                   // John Doe
+$inbound->from->email;                  // john@example.com
+$inbound->from->full;                   // John Doe <john@example.com>
 
 $inbound->tag;
 $inbound->replyTo;
 $inbound->textBody;
 $inbound->htmlBody;
-$inbound->messageId;                // MessageID assigned by Postmark.
-$inbound->messageIdFromHeaders;     // Message-ID value from headers.
+$inbound->messageId;                    // MessageID assigned by Postmark.
+$inbound->messageIdFromHeaders;         // Message-ID value from headers.
 $inbound->strippedTextReply;
 $inbound->originalRecipient;
 
-$inbound->date;                     // Wed, 6 Sep 2017 19:11:00 +0200
-$inbound->utcDate;                  // 2017-09-06 17:11:00
-$inbound->originalDate;             // Wed, 6 Sep 2017 19:11:00 +0200
-$inbound->timezone;                 // +02:00
-$inbound->subject;                  // Subject of the message
+$inbound->originalDate;                 // Wed, 6 Sep 2017 12:00:00 +0200
+$inbound->date;                         // PostmarkDate::class which is an extension of the DateTime::class
+$inbound->date->format('Y-m-d H:i:s')   // 2017-09-06 12:00:00
+$inbound->date->isUtc                   // boolean, is the date in the UTC timezone?
+$inbound->date->utc;                    // 2017-09-06 10:00:00
+$inbound->date->timezone;               // +02:00
+$inbound->date->inUtcTimezone()         // Sets the timezone to UTC.
+$inbound->subject;                      // Subject of the message.
 
-$inbound->to->count()               // Recipient count
+$inbound->to->count()                   // Recipient count.
 $inbound->cc->count()
 $inbound->bcc->count()
 
-$inbound->attachments->count()      // Attachment count
+$inbound->attachments->count()          // Attachment count.
 
-$inbound->headers->count()          // Header count
+$inbound->headers->count()              // Header count.
 ```
 
 ### Recipients
