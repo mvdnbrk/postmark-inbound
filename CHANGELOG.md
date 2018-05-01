@@ -5,7 +5,11 @@ All notable changes to `postmark-inbound` will be documented in this file.
 ## [Unreleased]
 
 ### Added
+- Added a helper method to get the spam score for a message. [`f1884cf`](https://github.com/mvdnbrk/postmark-inbound/commit/f1884cf2889ea5206ebb4e876d0616c0fdc51fb4)
 - Added a helper method to retrieve valid json in tests. [`8c61cbb`](https://github.com/mvdnbrk/postmark-inbound/commit/8c61cbb3d568c1d65dfc9029661574b2f6693611), [`027475a`](https://github.com/mvdnbrk/postmark-inbound/commit/027475a4f870ca4a54ab434e585d458115b952d7)
+
+### Fixed
+- Fixes issue when trying to access headers if not present. [`f28a4bd`](https://github.com/mvdnbrk/postmark-inbound/commit/f28a4bd308385514daff5f3d9a2156692636945a)
 
 ## [2.3.0] - 2018-04-30
 
