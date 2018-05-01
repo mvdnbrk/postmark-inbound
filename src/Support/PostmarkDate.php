@@ -5,6 +5,12 @@ namespace Mvdnbrk\Postmark\Support;
 use DateTime;
 use Mvdnbrk\Postmark\Support\Collection;
 
+/**
+ * This file is part of the Postmark Inbound package.
+ *
+ * @property-read string $timezone
+ * @property-read boolean $isUtc
+ */
 class PostmarkDate extends DateTime
 {
     /**
