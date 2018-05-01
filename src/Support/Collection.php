@@ -121,22 +121,16 @@ class Collection implements ArrayAccess, Countable
      * Determine if an item exists in the collection.
      *
      * @param  mixed  $key
-     * @param  mixed  $operator
-     * @param  mixed  $value
      * @return bool
      */
-    public function contains($key, $operator = null, $value = null)
+    public function contains($key)
     {
-        if (func_num_args() == 1) {
-            if ($this->useAsCallable($key)) {
-                $placeholder = new stdClass;
-                return $this->first($key, $placeholder) !== $placeholder;
-            }
-
-            return in_array($key, $this->items);
+        if ($this->useAsCallable($key)) {
+            $placeholder = new stdClass;
+            return $this->first($key, $placeholder) !== $placeholder;
         }
 
-        return $this->contains($this->operatorForWhere(...func_get_args()));
+        return in_array($key, $this->items);
     }
 
     /**
@@ -290,54 +284,6 @@ class Collection implements ArrayAccess, Countable
         }
 
         return new static($result);
-    }
-
-    /**
-     * Get an operator checker callback.
-     *
-     * @param  string  $key
-     * @param  string  $operator
-     * @param  mixed  $value
-     * @return \Closure
-     */
-    protected function operatorForWhere($key, $operator, $value = null)
-    {
-        if (func_num_args() == 2) {
-            $value = $operator;
-            $operator = '=';
-        }
-
-        return function ($item) use ($key, $operator, $value) {
-            $strings = array_filter([$item, $value], function ($value) {
-                return is_string($value) || (is_object($value) && method_exists($value, '__toString'));
-            });
-
-            if (count($strings) < 2 && count(array_filter([$item, $value], 'is_object')) == 1) {
-                return in_array($operator, ['!=', '<>', '!==']);
-            }
-
-            switch ($operator) {
-                default:
-                case '=':
-                case '==':
-                    return $item == $value;
-                case '!=':
-                case '<>':
-                    return $item != $value;
-                case '<':
-                    return $item < $value;
-                case '>':
-                    return $item > $value;
-                case '<=':
-                    return $item <= $value;
-                case '>=':
-                    return $item >= $value;
-                case '===':
-                    return $item === $value;
-                case '!==':
-                    return $item !== $value;
-            }
-        };
     }
 
     /**
