@@ -229,4 +229,12 @@ class InboundMessageTest extends TestCase
 
         $this->assertEquals('<message-id-from-headers>', $this->message->messageIdFromHeaders);
     }
+
+    /** @test */
+    public function trying_to_access_the_headers_attribute_should_return_empty_collection_when_not_present()
+    {
+        $this->message = new InboundMessage('{}');
+
+        $this->assertSame([], $this->message->headers->toArray());
+    }
 }

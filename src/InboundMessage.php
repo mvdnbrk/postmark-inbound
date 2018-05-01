@@ -154,7 +154,7 @@ class InboundMessage
      */
     public function getHeadersAttribute()
     {
-        return Collection::make($this->data->get('Headers'))
+        return Collection::make($this->data->get('Headers', []))
             ->mapWithKeys(function ($header) {
                 return [$header['Name'] => $header['Value']];
             });
