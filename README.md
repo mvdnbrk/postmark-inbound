@@ -43,7 +43,8 @@ $inbound->date->timezone;               // +02:00
 $inbound->date->inUtcTimezone()         // Sets the timezone to UTC.
 $inbound->subject;                      // Subject of the message.
 
-$inbound->spamStatus;                   // Spam status, defaults to 'No' when not present
+$inbound->isSpam;                       // boolean, is the message to be considered as spam?
+$inbound->spamStatus;                   // Spam status, defaults to 'No' when not present.
 $inbound->spamScore;                    // float, defaults to 0.0 when not present.
 
 $inbound->to->count()                   // Recipient count.

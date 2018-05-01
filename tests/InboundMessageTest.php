@@ -258,7 +258,7 @@ class InboundMessageTest extends TestCase
     }
 
     /** @test */
-    public function can_retrieve_spam_status()
+    public function can_retrieve_spam_status_value()
     {
         $this->message = new InboundMessage($this->validJson([
             'Headers' => []
@@ -276,10 +276,44 @@ class InboundMessageTest extends TestCase
     }
 
     /** @test */
+    public function can_determine_if_message_is_spam()
+    {
+        $this->message = new InboundMessage($this->validJson([
+            'Headers' => []
+        ]));
+        $this->assertFalse($this->message->isSpam);
+
+        $this->message = new InboundMessage($this->validJson([
+            'Headers' => [[
+                'Name' => 'X-Spam-Status',
+                'Value' => 'Yes'
+            ]]
+        ]));
+        $this->assertTrue($this->message->isSpam);
+
+        $this->message = new InboundMessage($this->validJson([
+            'Headers' => [[
+                'Name' => 'X-Spam-Status',
+                'Value' => 'yes'
+            ]]
+        ]));
+        $this->assertTrue($this->message->isSpam);
+    }
+
+    /** @test */
     public function trying_to_access_the_headers_attribute_should_return_empty_collection_when_not_present()
     {
         $this->message = new InboundMessage('{}');
 
         $this->assertSame([], $this->message->headers->toArray());
     }
+
+    // handle values per spec Yes/No
+    // accepts booleans? (True/False/0/1)
+    // defaults to false
+
+    // {
+    //   "Name": "X-Spam-Status",
+    //   "Value": "Yes"
+    // },
 }

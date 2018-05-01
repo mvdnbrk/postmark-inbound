@@ -148,6 +148,16 @@ class InboundMessage
     }
 
     /**
+     * Determines if the message is to be considered as spam.
+     *
+     * @return boolean
+     */
+    public function getIsSpamAttribute()
+    {
+        return ucfirst($this->spamStatus) === 'Yes';
+    }
+
+    /**
      * Retrieve the collecion of headers.
      *
      * @return \Mvdnbrk\Postmark\Support\Collection
