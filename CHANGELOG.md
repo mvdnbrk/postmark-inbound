@@ -4,6 +4,9 @@ All notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+- Added a helper method to retrieve valid json. [`8c61cbb`](https://github.com/mvdnbrk/postmark-inbound/commit/8c61cbb3d568c1d65dfc9029661574b2f6693611)
+
 ## [2.3.0] - 2018-04-30
 
 ### Added
