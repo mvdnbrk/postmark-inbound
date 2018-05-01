@@ -3,7 +3,6 @@
 namespace Mvdnbrk\Postmark;
 
 use DateTime;
-use DateTimeZone;
 use Mvdnbrk\Postmark\Contact;
 use Mvdnbrk\Postmark\Support\Collection;
 use Mvdnbrk\Postmark\Support\PostmarkDate;
