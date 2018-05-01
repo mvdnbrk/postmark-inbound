@@ -231,6 +231,33 @@ class InboundMessageTest extends TestCase
     }
 
     /** @test */
+    public function can_retrieve_spam_score_from_message()
+    {
+        $this->message = new InboundMessage($this->validJson([
+            'Headers' => []
+        ]));
+        $this->assertSame(0.0, $this->message->spamScore);
+
+        $this->message = new InboundMessage($this->validJson([
+            'Headers' => [[
+                'Name' => 'X-Spam-Score',
+                'Value' => '1.0'
+            ]]
+        ]));
+
+        $this->assertSame(1.0, $this->message->spamScore);
+
+        $this->message = new InboundMessage($this->validJson([
+            'Headers' => [[
+                'Name' => 'X-Spam-Score',
+                'Value' => '-1.0'
+            ]]
+        ]));
+
+        $this->assertSame(-1.0, $this->message->spamScore);
+    }
+
+    /** @test */
     public function trying_to_access_the_headers_attribute_should_return_empty_collection_when_not_present()
     {
         $this->message = new InboundMessage('{}');

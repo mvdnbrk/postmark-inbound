@@ -191,6 +191,16 @@ class InboundMessage
     }
 
     /**
+     * Retrieve spam score value from the message.
+     *
+     * @return float
+     */
+    public function getSpamScoreAttribute()
+    {
+        return (float)$this->headers->get('X-Spam-Score', '0.0');
+    }
+
+    /**
      * Parse contacts and return a collection of contacts.
      *
      * @param  array  $contacts
