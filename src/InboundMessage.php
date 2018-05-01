@@ -17,7 +17,6 @@ use Mvdnbrk\Postmark\Support\PostmarkDate;
  * @property-read \Mvdnbrk\Postmark\Support\Collection $headers
  * @property-read \Mvdnbrk\Postmark\Support\Collection $to
  * @property-read \Mvdnbrk\Postmark\Support\PostmarkDate $date
- * @property-read \Mvdnbrk\Postmark\Support\PostmarkDate $date
  * @property-read boolean $isSpam
  * @property-read string $htmlBody
  * @property-read string $mailboxHash
