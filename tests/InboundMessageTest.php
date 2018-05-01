@@ -258,6 +258,24 @@ class InboundMessageTest extends TestCase
     }
 
     /** @test */
+    public function can_retrieve_spam_status()
+    {
+        $this->message = new InboundMessage($this->validJson([
+            'Headers' => []
+        ]));
+        $this->assertEquals('No', $this->message->spamStatus);
+
+        $this->message = new InboundMessage($this->validJson([
+            'Headers' => [[
+                'Name' => 'X-Spam-Status',
+                'Value' => 'Yes'
+            ]]
+        ]));
+
+        $this->assertEquals('Yes', $this->message->spamStatus);
+    }
+
+    /** @test */
     public function trying_to_access_the_headers_attribute_should_return_empty_collection_when_not_present()
     {
         $this->message = new InboundMessage('{}');

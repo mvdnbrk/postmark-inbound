@@ -201,6 +201,16 @@ class InboundMessage
     }
 
     /**
+     * Retrieve spam status value from the message.
+     *
+     * @return float
+     */
+    public function getSpamStatusAttribute()
+    {
+        return $this->headers->get('X-Spam-Status', 'No');
+    }
+
+    /**
      * Parse contacts and return a collection of contacts.
      *
      * @param  array  $contacts
