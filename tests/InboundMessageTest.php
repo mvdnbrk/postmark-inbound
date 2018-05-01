@@ -28,14 +28,16 @@ class InboundMessageTest extends TestCase
     public function a_valid_json_source_is_required()
     {
         $this->expectException(\InvalidArgumentException::class);
-        new InboundMessage('not-a-valid-json-source');
+        new InboundMessage('not-a-valid-json-resource');
     }
 
     /** @test */
     public function a_valid_date_is_required()
     {
         $this->expectException(\Exception::class);
-        new InboundMessage('{"Date": "invalid-date"}');
+        $this->message = new InboundMessage($this->validJson([
+            'Date' => 'invalid-date',
+        ]));
     }
 
     /** @test */
@@ -108,17 +110,24 @@ class InboundMessageTest extends TestCase
     /** @test */
     public function message_can_have_an_empty_subject()
     {
-        $this->message = new InboundMessage('{"Date": "Wed, 6 Sep 2017 19:11:00 +0200", "Subject": ""}');
+        $this->message = new InboundMessage($this->validJson([
+            'Subject' => '',
+        ]));
+
         $this->assertEmpty($this->message->subject);
     }
 
     /** @test */
     public function incorrect_date_formats_posted_by_postmark_should_pass()
     {
-        $this->message = new InboundMessage('{"Date": "Fri, 27 Apr 2018 19:00:00 +0200 (CEST)"}');
+        $this->message = new InboundMessage($this->validJson([
+            'Date' => 'Fri, 27 Apr 2018 19:00:00 +0200 (CEST)',
+        ]));
         $this->assertEquals('2018-04-27 19:00:00', $this->message->date->format('Y-m-d H:i:s'));
 
-        $this->message = new InboundMessage('{"Date": "Fri, 27 Apr 2018 19:00:00 +0100 (West-Europe (stand"}');
+        $this->message = new InboundMessage($this->validJson([
+            'Date' => 'Fri, 27 Apr 2018 19:00:00 +0100 (West-Europe (stand',
+        ]));
         $this->assertEquals('2018-04-27 19:00:00', $this->message->date->format('Y-m-d H:i:s'));
     }
 
@@ -199,16 +208,25 @@ class InboundMessageTest extends TestCase
     /** @test */
     public function message_has_no_attachments_when_not_present_in_json_payload()
     {
-        $this->message = new InboundMessage(file_get_contents('./tests/fixtures/inbound-camelcase-message-id.json'));
+        $this->message = new InboundMessage('{}');
+        $this->assertEquals(0, $this->message->attachments->count());
+
+        $this->message = new InboundMessage($this->validJson([
+            'Attachments' => []
+        ]));
         $this->assertEquals(0, $this->message->attachments->count());
     }
 
     /** @test */
     public function get_message_id_from_headers()
     {
-        $this->assertEquals('<test-message-id@mail.example.com>', $this->message->messageIdFromHeaders);
+        $this->message = new InboundMessage($this->validJson([
+            'Headers' => [[
+                'Name' => 'Message-Id',
+                'Value' => '<message-id-from-headers>'
+            ]]
+        ]));
 
-        $this->message = new InboundMessage(file_get_contents('./tests/fixtures/inbound-camelcase-message-id.json'));
-        $this->assertEquals('<test-message-id@mail.example.com>', $this->message->messageIdFromHeaders);
+        $this->assertEquals('<message-id-from-headers>', $this->message->messageIdFromHeaders);
     }
 }
