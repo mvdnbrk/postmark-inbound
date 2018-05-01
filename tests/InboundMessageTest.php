@@ -8,10 +8,20 @@ use Mvdnbrk\Postmark\Support\PostmarkDate;
 
 class InboundMessageTest extends TestCase
 {
+    private function validJson($overrides = [])
+    {
+        return json_encode(
+            array_merge(
+                json_decode(file_get_contents('./tests/fixtures/inbound.json'), true),
+                $overrides
+            )
+        );
+    }
+
     protected function setUp()
     {
         parent::setUp();
-        $this->message = new InboundMessage(file_get_contents('./tests/fixtures/inbound.json'));
+        $this->message = new InboundMessage($this->validJson());
     }
 
     /** @test */
