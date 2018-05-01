@@ -10,21 +10,26 @@ use Mvdnbrk\Postmark\Support\PostmarkDate;
 /**
  * API to process Postmark Inbound Webhooks.
  *
+ * @property-read \Mvdnbrk\Postmark\Contact $from
  * @property-read \Mvdnbrk\Postmark\Support\Collection $attachments
  * @property-read \Mvdnbrk\Postmark\Support\Collection $bcc
  * @property-read \Mvdnbrk\Postmark\Support\Collection $cc
- * @property-read \Mvdnbrk\Postmark\Contact $from
  * @property-read \Mvdnbrk\Postmark\Support\Collection $headers
- * @property-read string $messageId MessageID assigned by Postmark.
- * @property-read string $messageIdFromHeaders Message-ID value from headers.
  * @property-read \Mvdnbrk\Postmark\Support\Collection $to
+ * @property-read \Mvdnbrk\Postmark\Support\PostmarkDate $date
+ * @property-read \Mvdnbrk\Postmark\Support\PostmarkDate $date
+ * @property-read boolean $isSpam
  * @property-read string $htmlBody
  * @property-read string $mailboxHash
- * @property-read string $utcDate
+ * @property-read string $messageId MessageID assigned by Postmark.
+ * @property-read string $messageIdFromHeaders Message-ID value from headers.
+ * @property-read string $originalDate
  * @property-read string $originalRecipient
  * @property-read string $replyTo
- * @property-read string $subject
+ * @property-read float $spamScore
+ * @property-read string $spamStatus
  * @property-read string $strippedTextReply
+ * @property-read string $subject
  * @property-read string $tag
  * @property-read string $textBody
  * @property-read string $timezone
