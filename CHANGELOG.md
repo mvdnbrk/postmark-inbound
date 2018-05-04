@@ -7,10 +7,10 @@ All notable changes to `postmark-inbound` will be documented in this file.
 ## [2.3.3] - 2018-05-04
 
 ### Fixed
-- Fixes an issue when Postmark sends invalid email adresses. [`469336e`](https://github.com/mvdnbrk/postmark-inbound/commit/469336e6724680dff6d4f5a8cdb83b50f0ff0021
+- Fixes an issue when Postmark sends invalid email adresses. [`469336e`](https://github.com/mvdnbrk/postmark-inbound/commit/469336e6724680dff6d4f5a8cdb83b50f0ff0021)
 
 ### Changed
-- Hash is optional when constructing a contact. [`684127e`](https://github.com/mvdnbrk/postmark-inbound/commit/684127e990b7ec81518dbe8672891dff8c09c6fb
+- Hash is optional when constructing a contact. [`684127e`](https://github.com/mvdnbrk/postmark-inbound/commit/684127e990b7ec81518dbe8672891dff8c09c6fb)
 
 ## [2.3.2] - 2018-05-01
 
