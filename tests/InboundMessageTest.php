@@ -307,13 +307,4 @@ class InboundMessageTest extends TestCase
 
         $this->assertSame([], $this->message->headers->toArray());
     }
-
-    // handle values per spec Yes/No
-    // accepts booleans? (True/False/0/1)
-    // defaults to false
-
-    // {
-    //   "Name": "X-Spam-Status",
-    //   "Value": "Yes"
-    // },
 }
