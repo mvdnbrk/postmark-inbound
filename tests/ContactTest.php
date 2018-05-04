@@ -16,4 +16,14 @@ class ContactTest extends TestCase
         $this->assertEquals('hash', $c->mailboxHash);
         $this->assertEquals('John <john@example.com>', $c->full);
     }
+
+    /** @test */
+    public function hash_is_optional()
+    {
+        $c = new Contact('John', 'john@example.com');
+        $this->assertEquals('John', $c->name);
+        $this->assertEquals('john@example.com', $c->email);
+        $this->assertNull($c->mailboxHash);
+        $this->assertEquals('John <john@example.com>', $c->full);
+    }
 }

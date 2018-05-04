@@ -37,9 +37,9 @@ class Contact
      *
      * @param string $name
      * @param string $email
-     * @param string $mailboxHash
+     * @param string|null $mailboxHash
      */
-    public function __construct($name, $email, $mailboxHash)
+    public function __construct($name, $email, $mailboxHash = null)
     {
         $this->name = $name;
         $this->email = $email;
