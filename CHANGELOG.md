@@ -4,7 +4,7 @@ All notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
-## [2.3.2] - 2018-05-04
+## [2.3.3] - 2018-05-04
 
 ### Fixed
 - Fixes an issue when Postmark sends invalid email adresses. [`469336e`](https://github.com/mvdnbrk/postmark-inbound/commit/469336e6724680dff6d4f5a8cdb83b50f0ff0021
