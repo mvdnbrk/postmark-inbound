@@ -2,6 +2,8 @@
 
 namespace Mvdnbrk\Postmark;
 
+use Mvdnbrk\Postmark\Support\Collection;
+
 class Contact
 {
     /**
@@ -41,9 +43,15 @@ class Contact
      */
     public function __construct($name, $email, $mailboxHash = null)
     {
-        $this->name = $name;
-        $this->email = $email;
+        $this->name = trim($name);
+
+        $c = new Collection(explode(' ', $email));
+        $this->email = $c->filter(function ($value) {
+            return strpos($value, '@') !== false;
+        })->first();
+
         $this->mailboxHash = $mailboxHash;
+
         $this->full = $name . ' <' . $email . '>';
     }
 }

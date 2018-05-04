@@ -18,6 +18,39 @@ class ContactTest extends TestCase
     }
 
     /** @test */
+    public function email_address_with_leading_or_trailing_spaces_is_trimmed()
+    {
+        $c = new Contact('John', '    john@example.com', 'hash');
+        $this->assertEquals('john@example.com', $c->email);
+
+        $c = new Contact('John', 'john@example.com    ', 'hash');
+        $this->assertEquals('john@example.com', $c->email);
+
+        $c = new Contact('John', '    john@example.com    ', 'hash');
+        $this->assertEquals('john@example.com', $c->email);
+    }
+
+    /** @test */
+    public function name_with_leading_or_trailing_spaces_is_trimmed()
+    {
+        $c = new Contact('    John', 'john@example.com', 'hash');
+        $this->assertEquals('John', $c->name);
+
+        $c = new Contact('John    ', 'john@example.com', 'hash');
+        $this->assertEquals('John', $c->name);
+
+        $c = new Contact('    John    ', 'john@example.com', 'hash');
+        $this->assertEquals('John', $c->name);
+    }
+
+    /** @test */
+    public function email_address_with_non_allowed_prefix_is_stripped_off()
+    {
+        $c = new Contact('John', ' ^   john@example.com', 'hash');
+        $this->assertEquals('john@example.com', $c->email);
+    }
+
+    /** @test */
     public function hash_is_optional()
     {
         $c = new Contact('John', 'john@example.com');
