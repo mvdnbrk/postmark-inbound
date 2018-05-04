@@ -4,6 +4,14 @@ All notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
+## [2.3.2] - 2018-05-04
+
+### Fixed
+- Fixes an issue when Postmark sends invalid email adresses. [`469336e`](https://github.com/mvdnbrk/postmark-inbound/commit/469336e6724680dff6d4f5a8cdb83b50f0ff0021
+
+### Changed
+- Hash is optional when constructing a contact. [`684127e`](https://github.com/mvdnbrk/postmark-inbound/commit/684127e990b7ec81518dbe8672891dff8c09c6fb
+
 ## [2.3.2] - 2018-05-01
 
 ### Added
@@ -121,7 +129,8 @@ All notable changes to `postmark-inbound` will be documented in this file.
 - Code style fixes. [`7c8eb86`](https://github.com/mvdnbrk/postmark-inbound/commit/7c8eb86cbf9719fbb568160decf4ae8dc735ce98)
 - PHPUnit minimum version set to 5.4.3. [`c2331a4`](https://github.com/mvdnbrk/postmark-inbound/commit/c2331a48557ef88f67b2a7df1176cccf05a2b3e8)
 
-[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.2...HEAD
+[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.3...HEAD
+[2.3.3]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.2...v2.3.3
 [2.3.2]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.1...v2.3.2
 [2.3.1]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.0...v2.3.1
 [2.3.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.2.0...v2.3.0
