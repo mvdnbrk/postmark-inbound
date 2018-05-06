@@ -73,19 +73,18 @@ class InboundMessage
      */
     public function getAttachmentsAttribute()
     {
-        $attachments = new Collection($this->data->get('Attachments', []));
+        return (new Collection($this->data->get('Attachments', [])))
+            ->map(function ($data) {
+                $attachment = new Collection($data);
 
-        return $attachments->map(function ($data) {
-            $attachment = new Collection($data);
-
-            return new Attachment(
-                $attachment->get('Name'),
-                $attachment->get('ContentID'),
-                $attachment->get('ContentType'),
-                $attachment->get('ContentLength'),
-                $attachment->get('Content')
-            );
-        });
+                return new Attachment(
+                    $attachment->get('Name'),
+                    $attachment->get('ContentID'),
+                    $attachment->get('ContentType'),
+                    $attachment->get('ContentLength'),
+                    $attachment->get('Content')
+                );
+            });
     }
 
     /**

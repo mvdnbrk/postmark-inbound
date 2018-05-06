@@ -45,10 +45,11 @@ class Contact
     {
         $this->name = trim($name);
 
-        $c = new Collection(explode(' ', $email));
-        $this->email = $c->filter(function ($value) {
-            return strpos($value, '@') !== false;
-        })->first();
+        $this->email = (new Collection(explode(' ', $email)))
+            ->filter(function ($value) {
+                return strpos($value, '@') !== false;
+            })
+            ->first();
 
         $this->mailboxHash = $mailboxHash;
 
