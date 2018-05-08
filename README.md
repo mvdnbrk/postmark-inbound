@@ -1,3 +1,5 @@
+<p align="center"><a href="https://postmarkapp.com" target="_blank"><img src="https://postmarkapp.com//images/logo.svg" alt="Postmark Inbound" width="240" height="40"></a>
+
 # postmark-inbound
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
