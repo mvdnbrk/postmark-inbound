@@ -70,7 +70,7 @@ class PostmarkDate extends DateTime
     }
 
     /**
-     * Created a new instance from a string.
+     * Create a new instance from a string.
      *
      * @param  string $date
      * @return static
