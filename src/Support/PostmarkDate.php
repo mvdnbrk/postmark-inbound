@@ -3,7 +3,6 @@
 namespace Mvdnbrk\Postmark\Support;
 
 use DateTime;
-use Mvdnbrk\Postmark\Support\Collection;
 
 /**
  * This file is part of the Postmark Inbound package.
@@ -56,7 +55,7 @@ class PostmarkDate extends DateTime
      */
     public static function getAbbreviatedDaysCollection()
     {
-        return new Collection(static::getAbbreviatedDays());
+        return collect(static::getAbbreviatedDays());
     }
 
     /**
@@ -78,7 +77,7 @@ class PostmarkDate extends DateTime
     public static function parse($date)
     {
         return new static(
-            (new Collection(explode(' ', $date)))
+            collect(explode(' ', $date))
             ->reject(function ($value) {
                 return self::getAbbreviatedDaysCollection()->contains(trim($value, ','));
             })

@@ -2,8 +2,6 @@
 
 namespace Mvdnbrk\Postmark;
 
-use Mvdnbrk\Postmark\Support\Collection;
-
 class Contact
 {
     /**
@@ -45,7 +43,7 @@ class Contact
     {
         $this->name = trim($name, ' "\'');
 
-        $this->email = (new Collection(explode(' ', $email)))
+        $this->email = collect(explode(' ', $email))
             ->filter(function ($value) {
                 return strpos($value, '@') !== false;
             })
