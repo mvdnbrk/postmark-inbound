@@ -4,7 +4,11 @@ All notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
-## [2.3.5] - 2018-08-23
+## [2.3.6] - 2018-08-23
+
+### Fixed
+
+- Curent date/time should be returned on parsing an invalid date/time. ([#8](https://github.com/mvdnbrk/postmark-inbound/pull/8))
 
 ### Changed
 
@@ -141,7 +145,8 @@ All notable changes to `postmark-inbound` will be documented in this file.
 - Code style fixes. [`7c8eb86`](https://github.com/mvdnbrk/postmark-inbound/commit/7c8eb86cbf9719fbb568160decf4ae8dc735ce98)
 - PHPUnit minimum version set to 5.4.3. [`c2331a4`](https://github.com/mvdnbrk/postmark-inbound/commit/c2331a48557ef88f67b2a7df1176cccf05a2b3e8)
 
-[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.5...HEAD
+[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.6...HEAD
+[2.3.6]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.5...v2.3.6
 [2.3.5]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.4...v2.3.5
 [2.3.4]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.3...v2.3.4
 [2.3.3]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.2...v2.3.3
