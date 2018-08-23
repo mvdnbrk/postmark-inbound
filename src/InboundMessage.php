@@ -37,7 +37,7 @@ class InboundMessage
     /**
      * Collection of the json data.
      *
-     * @var \Mvdnbrk\Postmark\Support\Collection
+     * @var \Tightenco\Collect\Support\Collection
      */
     protected $data;
 
