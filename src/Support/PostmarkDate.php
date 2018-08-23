@@ -76,14 +76,20 @@ class PostmarkDate extends DateTime
      */
     public static function parse($date)
     {
-        return new static(
-            collect(explode(' ', $date))
-            ->reject(function ($value) {
-                return self::getAbbreviatedDaysCollection()->contains(trim($value, ','));
-            })
-            ->take(5)
-            ->implode(' ')
-        );
+        try {
+            return new static(
+                collect(explode(' ', $date))
+                ->reject(function ($value) {
+                    return self::getAbbreviatedDaysCollection()->contains(trim($value, ','));
+                })
+                ->take(5)
+                ->implode(' ')
+            );
+        } catch (\Exception $e) {
+            //
+        }
+
+        return new static();
     }
 
     /**

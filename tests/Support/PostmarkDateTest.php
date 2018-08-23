@@ -77,4 +77,12 @@ class PostmarkDateTest extends TestCase
         $date = new PostmarkDate('now');
         $date->doesNotExist;
     }
+
+    /** @test */
+    public function if_it_failes_to_parse_a_time_string_it_should_return_the_current_date_time()
+    {
+        $date = PostmarkDate::parse('21 May 2018 27:03:20 +0700');
+
+        $this->assertNotNull($date->format('Y-m-d H:i:s O'));
+    }
 }
