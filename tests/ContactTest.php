@@ -51,6 +51,18 @@ class ContactTest extends TestCase
     }
 
     /** @test */
+    public function a_quoted_name_should_be_unquoted()
+    {
+        $c = new Contact('"John"', 'john@example.com', 'hash');
+        $this->assertEquals('John', $c->name);
+        $this->assertEquals('John <john@example.com>', $c->full);
+
+        $c = new Contact("'John'", 'john@example.com', 'hash');
+        $this->assertEquals('John', $c->name);
+        $this->assertEquals('John <john@example.com>', $c->full);
+    }
+
+    /** @test */
     public function hash_is_optional()
     {
         $c = new Contact('John', 'john@example.com');

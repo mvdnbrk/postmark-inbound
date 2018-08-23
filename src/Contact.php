@@ -43,7 +43,7 @@ class Contact
      */
     public function __construct($name, $email, $mailboxHash = null)
     {
-        $this->name = trim($name);
+        $this->name = trim($name, ' "\'');
 
         $this->email = (new Collection(explode(' ', $email)))
             ->filter(function ($value) {
@@ -53,6 +53,6 @@ class Contact
 
         $this->mailboxHash = $mailboxHash;
 
-        $this->full = $name . ' <' . $email . '>';
+        $this->full = $this->name . ' <' . $email . '>';
     }
 }
