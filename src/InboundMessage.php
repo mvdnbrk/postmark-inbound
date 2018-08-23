@@ -10,7 +10,7 @@ use Mvdnbrk\Postmark\Support\PostmarkDate;
  * API to process Postmark Inbound Webhooks.
  *
  * @property-read \Mvdnbrk\Postmark\Contact $from
- * @property-read \Mvdnbrk\Postmark\Support\Collection $attachments
+ * @property-read \Tightenco\Collect\Support\Collection $attachments
  * @property-read \Tightenco\Collect\Support\Collection $bcc
  * @property-read \Tightenco\Collect\Support\Collection $cc
  * @property-read \Tightenco\Collect\Support\Collection $headers
