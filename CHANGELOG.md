@@ -4,6 +4,10 @@ All notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
+### Changed
+
+- Adds the tightenco/collect package instead of our own implementation.  ([#7](https://github.com/mvdnbrk/postmark-inbound/pull/7))
+
 ## [2.3.4] - 2018-08-23
 
 ### Fixed
