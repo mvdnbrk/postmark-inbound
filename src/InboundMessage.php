@@ -4,7 +4,6 @@ namespace Mvdnbrk\Postmark;
 
 use DateTime;
 use Mvdnbrk\Postmark\Contact;
-use Mvdnbrk\Postmark\Support\Collection;
 use Mvdnbrk\Postmark\Support\PostmarkDate;
 
 /**
@@ -12,10 +11,10 @@ use Mvdnbrk\Postmark\Support\PostmarkDate;
  *
  * @property-read \Mvdnbrk\Postmark\Contact $from
  * @property-read \Mvdnbrk\Postmark\Support\Collection $attachments
- * @property-read \Mvdnbrk\Postmark\Support\Collection $bcc
- * @property-read \Mvdnbrk\Postmark\Support\Collection $cc
- * @property-read \Mvdnbrk\Postmark\Support\Collection $headers
- * @property-read \Mvdnbrk\Postmark\Support\Collection $to
+ * @property-read \Tightenco\Collect\Support\Collection $bcc
+ * @property-read \Tightenco\Collect\Support\Collection $cc
+ * @property-read \Tightenco\Collect\Support\Collection $headers
+ * @property-read \Tightenco\Collect\Support\Collection $to
  * @property-read \Mvdnbrk\Postmark\Support\PostmarkDate $date
  * @property-read boolean $isSpam
  * @property-read string $htmlBody
@@ -57,7 +56,7 @@ class InboundMessage
      */
     public function __construct($json = null)
     {
-        $this->data = new Collection(json_decode($json, true));
+        $this->data = collect(json_decode($json, true));
 
         if ((json_last_error() !== JSON_ERROR_NONE)) {
             throw new \InvalidArgumentException('You must provide a valid JSON source.');
@@ -73,9 +72,9 @@ class InboundMessage
      */
     public function getAttachmentsAttribute()
     {
-        return (new Collection($this->data->get('Attachments', [])))
+        return collect($this->data->get('Attachments', []))
             ->map(function ($data) {
-                $attachment = new Collection($data);
+                $attachment = collect($data);
 
                 return new Attachment(
                     $attachment->get('Name'),
@@ -166,7 +165,7 @@ class InboundMessage
      */
     public function getHeadersAttribute()
     {
-        return Collection::make($this->data->get('Headers', []))
+        return collect($this->data->get('Headers', []))
             ->mapWithKeys(function ($header) {
                 return [$header['Name'] => $header['Value']];
             });
@@ -189,7 +188,10 @@ class InboundMessage
      */
     public function getMessageIdFromHeadersAttribute()
     {
-        return $this->headers->changeKeyCase()->get('message-id');
+        return $this->headers->mapWithKeys(function ($item, $key) {
+                return [strtolower($key) => $item];
+            })
+            ->get('message-id');
     }
 
     /**
@@ -230,9 +232,9 @@ class InboundMessage
      */
     protected function parseContacts($contacts = [])
     {
-        return Collection::make($contacts)
+        return collect($contacts)
             ->map(function ($contact) {
-                $contact = Collection::make($contact);
+                $contact = collect($contact);
                 return new Contact($contact->get('Name'), $contact->get('Email'), $contact->get('MailboxHash'));
             });
     }

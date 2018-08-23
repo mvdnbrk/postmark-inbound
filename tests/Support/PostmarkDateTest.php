@@ -3,7 +3,7 @@
 namespace Mvdnbrk\Postmark\Tests\Support;
 
 use PHPUnit\Framework\TestCase;
-use Mvdnbrk\Postmark\Support\Collection;
+use Tightenco\Collect\Support\Collection;
 use Mvdnbrk\Postmark\Support\PostmarkDate;
 
 class PostmarkDateTest extends TestCase
