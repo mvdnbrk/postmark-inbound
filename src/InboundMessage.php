@@ -189,9 +189,8 @@ class InboundMessage
     public function getMessageIdFromHeadersAttribute()
     {
         return $this->headers->mapWithKeys(function ($item, $key) {
-                return [strtolower($key) => $item];
-            })
-            ->get('message-id');
+            return [strtolower($key) => $item];
+        })->get('message-id');
     }
 
     /**
