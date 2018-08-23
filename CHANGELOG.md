@@ -8,7 +8,7 @@ All notable changes to `postmark-inbound` will be documented in this file.
 
 ### Fixed
 
-- A quoted contact named should not be quoted.
+- A quoted contact named should not be quoted. ([#5](https://github.com/mvdnbrk/postmark-inbound/pull/5))
 
 ## [2.3.3] - 2018-05-04
 
