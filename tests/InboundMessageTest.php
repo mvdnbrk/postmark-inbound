@@ -32,15 +32,6 @@ class InboundMessageTest extends TestCase
     }
 
     /** @test */
-    public function a_valid_date_is_required()
-    {
-        $this->expectException(\Exception::class);
-        $this->message = new InboundMessage($this->validJson([
-            'Date' => 'invalid-date',
-        ]));
-    }
-
-    /** @test */
     public function getting_unknown_getter_throws_exception()
     {
         $this->expectException(\InvalidArgumentException::class);
