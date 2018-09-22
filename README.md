@@ -11,12 +11,12 @@
 
 Simple API to process Postmark Inbound Webhooks.
 
-## Install
+## Installation
 
-Via Composer
+You can install the package via composer:
 
 ``` bash
-$ composer require mvdnbrk/postmark-inbound
+composer require mvdnbrk/postmark-inbound
 ```
 
 ## Usage
