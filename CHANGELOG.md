@@ -4,20 +4,22 @@ All notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
+## [2.3.7] - 2019-05-20
+
+### Changed
+- Updated tightenco/collect to ^5.8. (`ad7e3ee`)[https://github.com/mvdnbrk/postmark-inbound/commit/ad7e3ee44eaec9f2d3e98eee0d4d056c6883325a]
+
 ## [2.3.6] - 2018-08-23
 
 ### Fixed
-
 - Curent date/time should be returned on parsing an invalid date/time. ([#8](https://github.com/mvdnbrk/postmark-inbound/pull/8))
 
 ### Changed
-
 - Adds the tightenco/collect package instead of our own implementation.  ([#7](https://github.com/mvdnbrk/postmark-inbound/pull/7))
 
 ## [2.3.4] - 2018-08-23
 
 ### Fixed
-
 - A quoted contact named should not be quoted. ([#5](https://github.com/mvdnbrk/postmark-inbound/pull/5))
 
 ## [2.3.3] - 2018-05-04
@@ -34,7 +36,7 @@ All notable changes to `postmark-inbound` will be documented in this file.
 - Added property annotations. [`2f77fdc`](https://github.com/mvdnbrk/postmark-inbound/commit/2f77fdcd1d965c4af094a5fb11aa9d0dd2b7ed1b)
 
 ### Changed
--  Added property annotations. [`be4fdc7`](https://github.com/mvdnbrk/postmark-inbound/commit/be4fdc78685d8c691b8741d5d0ebaddef959f118), [`31ff582`](https://github.com/mvdnbrk/postmark-inbound/commit/31ff58253ed3c4cdc8d63f41dea38165e958bb83)
+- Added property annotations. [`be4fdc7`](https://github.com/mvdnbrk/postmark-inbound/commit/be4fdc78685d8c691b8741d5d0ebaddef959f118), [`31ff582`](https://github.com/mvdnbrk/postmark-inbound/commit/31ff58253ed3c4cdc8d63f41dea38165e958bb83)
 
 ### Removed
 - Removed unused method from Collectio class. [`1ce663b`](https://github.com/mvdnbrk/postmark-inbound/commit/1ce663b2828539be2b13c09be025d0982d1f0fb5)
@@ -63,7 +65,6 @@ All notable changes to `postmark-inbound` will be documented in this file.
 
 ### Fixed
 - Fixes an issue with incorrect date formats posted by Postmark. [`a656033`](https://github.com/mvdnbrk/postmark-inbound/commit/a656033e2fafa8b0fa3ea594f84403704c7ff9d6)
-
 
 ### Changed
 - Updated README. [`2653a8f`](https://github.com/mvdnbrk/postmark-inbound/commit/2653a8f431a89b18f8002f2cc353aa7ab303ba0b)
@@ -105,11 +106,15 @@ All notable changes to `postmark-inbound` will be documented in this file.
 
 ## [1.0.5] - 2017-11-07
 
+### Changed
 - Updates composer.json. [`972576e`](https://github.com/mvdnbrk/postmark-inbound/commit/972576e423de2e4844e60659a2da83a75c10c080)
 
 ## [1.0.4] - 2017-11-07
 
+### Added
 - Added a test in case of receiving a payload without Attachments. [`9784ed8`](https://github.com/mvdnbrk/postmark-inbound/commit/9784ed8f9ad73d3985d284bde3dbf683fc648c27)
+
+### Changed
 - Updates readme. [`8f88946`](https://github.com/mvdnbrk/postmark-inbound/commit/8f889468315543b4914dc9a2d35ad1859415d465)
 
 ## [1.0.3] - 2017-10-10
@@ -145,7 +150,8 @@ All notable changes to `postmark-inbound` will be documented in this file.
 - Code style fixes. [`7c8eb86`](https://github.com/mvdnbrk/postmark-inbound/commit/7c8eb86cbf9719fbb568160decf4ae8dc735ce98)
 - PHPUnit minimum version set to 5.4.3. [`c2331a4`](https://github.com/mvdnbrk/postmark-inbound/commit/c2331a48557ef88f67b2a7df1176cccf05a2b3e8)
 
-[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.6...HEAD
+[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.7...HEAD
+[2.3.7]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.6...v2.3.7
 [2.3.6]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.5...v2.3.6
 [2.3.5]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.4...v2.3.5
 [2.3.4]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.3...v2.3.4
