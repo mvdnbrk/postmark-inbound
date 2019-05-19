@@ -60,7 +60,7 @@ $inbound->headers->count()              // Header count.
 
 ### Recipients
 
-```
+```php
 $inbound->to->each(function($contact) {
     $contact->name;
     $contact->email;
@@ -86,7 +86,7 @@ $inbound->to->first();
 
 ### Attachments
 
-```
+```php
 $inbound->attachments->each(function($attachment) {
     $attachment->name;
     $attachment->contentType;
@@ -96,12 +96,12 @@ $inbound->attachments->each(function($attachment) {
 ```
 
 Get the first attachment:
-```
+```php
 $inbound->attachments->first();
 ```
 
 Get the last attachment:
-```
+```php
 $inbound->attachments->last();
 ```
 
@@ -111,7 +111,7 @@ The Message-ID in the headers are sometimes keyed with upper `ID` and sometimes 
 So if you want to get the Message-ID from a message you can simply use the `$inbound->messageIdFromHeaders` helper attribute.
 Please note that `$inbound->messageId` will give you the id of the message that was assigned by Postmark.
 
-```
+```php
 $inbound->headers->each(function($value, $key) {
     ...
 });
@@ -131,6 +131,10 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## Security
+
+If you discover any security related issues, please email mvdnbrk@gmail.com instead of using the issue tracker.
 
 ## Credits
 
