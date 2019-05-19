@@ -18,7 +18,7 @@ class InboundMessageTest extends TestCase
         );
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->message = new InboundMessage($this->validJson());
