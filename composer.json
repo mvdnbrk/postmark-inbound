@@ -25,8 +25,7 @@
     "require-dev": {
         "larapack/dd": "^1.1",
         "nunomaduro/collision": "^3.0",
-        "phpunit/phpunit": "^8.0",
-        "squizlabs/php_codesniffer": "^3.0"
+        "phpunit/phpunit": "^8.0"
     },
     "autoload": {
         "psr-4": {
@@ -39,9 +38,7 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit",
-        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
-        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+        "test": "vendor/bin/phpunit"
     },
     "extra": {
         "branch-alias": {
