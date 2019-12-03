@@ -23,10 +23,10 @@
         "tightenco/collect": "^5.8 || ^6.0"
     },
     "require-dev": {
-        "larapack/dd": "^1.1",
         "nunomaduro/collision": "^3.0",
         "phpunit/phpunit": "^7.5|^8.0",
-        "scrutinizer/ocular": "^1.6"
+        "scrutinizer/ocular": "^1.6",
+        "symfony/var-dumper": "^5.0"
     },
     "autoload": {
         "psr-4": {
