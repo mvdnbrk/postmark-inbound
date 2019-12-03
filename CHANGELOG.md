@@ -4,23 +4,28 @@ All notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
+## [2.3.8] - 2019-12-03
+
+### CHANGED
+- Updates version constraints. [`cd7fe7c`](https://github.com/mvdnbrk/postmark-inbound/commit/cd7fe7c889a76452fca6e3a64439eda586d231ac)
+
 ## [2.3.7] - 2019-05-20
 
 ### Changed
-- Updated tightenco/collect to ^5.8. (`ad7e3ee`)[https://github.com/mvdnbrk/postmark-inbound/commit/ad7e3ee44eaec9f2d3e98eee0d4d056c6883325a]
+- Updated tightenco/collect to ^5.8. [`ad7e3ee`](https://github.com/mvdnbrk/postmark-inbound/commit/ad7e3ee44eaec9f2d3e98eee0d4d056c6883325a)
 
 ## [2.3.6] - 2018-08-23
 
 ### Fixed
-- Curent date/time should be returned on parsing an invalid date/time. ([#8](https://github.com/mvdnbrk/postmark-inbound/pull/8))
+- Curent date/time should be returned on parsing an invalid date/time. [`#8`](https://github.com/mvdnbrk/postmark-inbound/pull/8)
 
 ### Changed
-- Adds the tightenco/collect package instead of our own implementation.  ([#7](https://github.com/mvdnbrk/postmark-inbound/pull/7))
+- Adds the tightenco/collect package instead of our own implementation.  [`#7`](https://github.com/mvdnbrk/postmark-inbound/pull/7)
 
 ## [2.3.4] - 2018-08-23
 
 ### Fixed
-- A quoted contact named should not be quoted. ([#5](https://github.com/mvdnbrk/postmark-inbound/pull/5))
+- A quoted contact named should not be quoted. [`#5`](https://github.com/mvdnbrk/postmark-inbound/pull/5)
 
 ## [2.3.3] - 2018-05-04
 
@@ -150,7 +155,8 @@ All notable changes to `postmark-inbound` will be documented in this file.
 - Code style fixes. [`7c8eb86`](https://github.com/mvdnbrk/postmark-inbound/commit/7c8eb86cbf9719fbb568160decf4ae8dc735ce98)
 - PHPUnit minimum version set to 5.4.3. [`c2331a4`](https://github.com/mvdnbrk/postmark-inbound/commit/c2331a48557ef88f67b2a7df1176cccf05a2b3e8)
 
-[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.7...HEAD
+[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.8...HEAD
+[2.3.8]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.7...v2.3.8
 [2.3.7]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.6...v2.3.7
 [2.3.6]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.5...v2.3.6
 [2.3.5]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.4...v2.3.5
