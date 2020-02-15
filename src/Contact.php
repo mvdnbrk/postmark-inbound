@@ -12,7 +12,7 @@ class Contact
     public $email;
 
     /**
-     * Name of the contact,
+     * Name of the contact.
      *
      * @var string
      */
