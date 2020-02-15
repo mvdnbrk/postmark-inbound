@@ -2,9 +2,9 @@
 
 namespace Mvdnbrk\Postmark\Tests\Support;
 
+use Mvdnbrk\Postmark\Support\PostmarkDate;
 use PHPUnit\Framework\TestCase;
 use Tightenco\Collect\Support\Collection;
-use Mvdnbrk\Postmark\Support\PostmarkDate;
 
 class PostmarkDateTest extends TestCase
 {

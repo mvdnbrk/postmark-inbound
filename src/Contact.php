@@ -51,6 +51,6 @@ class Contact
 
         $this->mailboxHash = $mailboxHash;
 
-        $this->full = $this->name . ' <' . $email . '>';
+        $this->full = $this->name.' <'.$email.'>';
     }
 }
