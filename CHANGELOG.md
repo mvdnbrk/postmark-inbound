@@ -6,7 +6,7 @@ All notable changes to `postmark-inbound` will be documented in this file.
 
 ## [2.3.8] - 2019-12-03
 
-### CHANGED
+### Changed
 - Updates version constraints. [`cd7fe7c`](https://github.com/mvdnbrk/postmark-inbound/commit/cd7fe7c889a76452fca6e3a64439eda586d231ac)
 
 ## [2.3.7] - 2019-05-20
