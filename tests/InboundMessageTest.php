@@ -2,9 +2,9 @@
 
 namespace Mvdnbrk\Postmark\Tests;
 
-use PHPUnit\Framework\TestCase;
 use Mvdnbrk\Postmark\InboundMessage;
 use Mvdnbrk\Postmark\Support\PostmarkDate;
+use PHPUnit\Framework\TestCase;
 
 class InboundMessageTest extends TestCase
 {
@@ -203,7 +203,7 @@ class InboundMessageTest extends TestCase
         $this->assertEquals(0, $this->message->attachments->count());
 
         $this->message = new InboundMessage($this->validJson([
-            'Attachments' => []
+            'Attachments' => [],
         ]));
         $this->assertEquals(0, $this->message->attachments->count());
     }
@@ -214,8 +214,8 @@ class InboundMessageTest extends TestCase
         $this->message = new InboundMessage($this->validJson([
             'Headers' => [[
                 'Name' => 'Message-Id',
-                'Value' => '<message-id-from-headers>'
-            ]]
+                'Value' => '<message-id-from-headers>',
+            ]],
         ]));
 
         $this->assertEquals('<message-id-from-headers>', $this->message->messageIdFromHeaders);
@@ -225,15 +225,15 @@ class InboundMessageTest extends TestCase
     public function can_retrieve_spam_score_from_message()
     {
         $this->message = new InboundMessage($this->validJson([
-            'Headers' => []
+            'Headers' => [],
         ]));
         $this->assertSame(0.0, $this->message->spamScore);
 
         $this->message = new InboundMessage($this->validJson([
             'Headers' => [[
                 'Name' => 'X-Spam-Score',
-                'Value' => '1.0'
-            ]]
+                'Value' => '1.0',
+            ]],
         ]));
 
         $this->assertSame(1.0, $this->message->spamScore);
@@ -241,8 +241,8 @@ class InboundMessageTest extends TestCase
         $this->message = new InboundMessage($this->validJson([
             'Headers' => [[
                 'Name' => 'X-Spam-Score',
-                'Value' => '-1.0'
-            ]]
+                'Value' => '-1.0',
+            ]],
         ]));
 
         $this->assertSame(-1.0, $this->message->spamScore);
@@ -252,15 +252,15 @@ class InboundMessageTest extends TestCase
     public function can_retrieve_spam_status_value()
     {
         $this->message = new InboundMessage($this->validJson([
-            'Headers' => []
+            'Headers' => [],
         ]));
         $this->assertEquals('No', $this->message->spamStatus);
 
         $this->message = new InboundMessage($this->validJson([
             'Headers' => [[
                 'Name' => 'X-Spam-Status',
-                'Value' => 'Yes'
-            ]]
+                'Value' => 'Yes',
+            ]],
         ]));
 
         $this->assertEquals('Yes', $this->message->spamStatus);
@@ -270,23 +270,23 @@ class InboundMessageTest extends TestCase
     public function can_determine_if_message_is_spam()
     {
         $this->message = new InboundMessage($this->validJson([
-            'Headers' => []
+            'Headers' => [],
         ]));
         $this->assertFalse($this->message->isSpam);
 
         $this->message = new InboundMessage($this->validJson([
             'Headers' => [[
                 'Name' => 'X-Spam-Status',
-                'Value' => 'Yes'
-            ]]
+                'Value' => 'Yes',
+            ]],
         ]));
         $this->assertTrue($this->message->isSpam);
 
         $this->message = new InboundMessage($this->validJson([
             'Headers' => [[
                 'Name' => 'X-Spam-Status',
-                'Value' => 'yes'
-            ]]
+                'Value' => 'yes',
+            ]],
         ]));
         $this->assertTrue($this->message->isSpam);
     }

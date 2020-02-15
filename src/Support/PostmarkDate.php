@@ -8,7 +8,7 @@ use DateTime;
  * This file is part of the Postmark Inbound package.
  *
  * @property-read string $timezone
- * @property-read boolean $isUtc
+ * @property-read bool $isUtc
  */
 class PostmarkDate extends DateTime
 {

@@ -3,7 +3,6 @@
 namespace Mvdnbrk\Postmark;
 
 use DateTime;
-use Mvdnbrk\Postmark\Contact;
 use Mvdnbrk\Postmark\Support\PostmarkDate;
 
 /**
@@ -16,7 +15,7 @@ use Mvdnbrk\Postmark\Support\PostmarkDate;
  * @property-read \Tightenco\Collect\Support\Collection $headers
  * @property-read \Tightenco\Collect\Support\Collection $to
  * @property-read \Mvdnbrk\Postmark\Support\PostmarkDate $date
- * @property-read boolean $isSpam
+ * @property-read bool $isSpam
  * @property-read string $htmlBody
  * @property-read string $mailboxHash
  * @property-read string $messageId MessageID assigned by Postmark.
@@ -114,7 +113,7 @@ class InboundMessage
     public function getFromAttribute()
     {
         return $this->parseContacts([
-            $this->data->get('FromFull')
+            $this->data->get('FromFull'),
         ])->first();
     }
 
@@ -151,7 +150,7 @@ class InboundMessage
     /**
      * Determines if the message is to be considered as spam.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsSpamAttribute()
     {
@@ -210,7 +209,7 @@ class InboundMessage
      */
     public function getSpamScoreAttribute()
     {
-        return (float)$this->headers->get('X-Spam-Score', '0.0');
+        return (float) $this->headers->get('X-Spam-Score', '0.0');
     }
 
     /**
@@ -234,6 +233,7 @@ class InboundMessage
         return collect($contacts)
             ->map(function ($contact) {
                 $contact = collect($contact);
+
                 return new Contact($contact->get('Name'), $contact->get('Email'), $contact->get('MailboxHash'));
             });
     }
