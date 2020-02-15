@@ -7,6 +7,7 @@
 [![Build Status][ico-travis]][link-travis]
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
 [![Quality Score][ico-code-quality]][link-code-quality]
+[![StyleCI][ico-styleci]][link-styleci]
 [![Total Downloads][ico-downloads]][link-downloads]
 
 Simple API to process Postmark Inbound Webhooks.
@@ -151,11 +152,13 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/mvdnbrk/postmark-inbound.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/mvdnbrk/postmark-inbound.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/mvdnbrk/postmark-inbound.svg?style=flat-square
+[ico-styleci]: https://github.styleci.io/repos/102744848/shield?style=flat-square&branch=master
 
 [link-packagist]: https://packagist.org/packages/mvdnbrk/postmark-inbound
 [link-travis]: https://travis-ci.org/mvdnbrk/postmark-inbound
 [link-scrutinizer]: https://scrutinizer-ci.com/g/mvdnbrk/postmark-inbound/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/mvdnbrk/postmark-inbound
 [link-downloads]: https://packagist.org/packages/mvdnbrk/postmark-inbound
+[link-styleci]: https://github.styleci.io/repos/102744848
 [link-author]: https://github.com/mvdnbrk
 [link-contributors]: ../../contributors
