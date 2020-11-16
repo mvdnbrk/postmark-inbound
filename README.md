@@ -4,7 +4,7 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
+[![Tests][ico-tests]][link-tests]
 [![StyleCI][ico-styleci]][link-styleci]
 [![Total Downloads][ico-downloads]][link-downloads]
 
@@ -146,12 +146,12 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [ico-version]: https://img.shields.io/packagist/v/mvdnbrk/postmark-inbound.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/mvdnbrk/postmark-inbound/master.svg?style=flat-square
+[ico-tests]: https://img.shields.io/github/workflow/status/mvdnbrk/postmark-inbound/tests/main?label=tests&style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/mvdnbrk/postmark-inbound.svg?style=flat-square
 [ico-styleci]: https://github.styleci.io/repos/102744848/shield?style=flat-square&branch=main
 
 [link-packagist]: https://packagist.org/packages/mvdnbrk/postmark-inbound
-[link-travis]: https://travis-ci.org/mvdnbrk/postmark-inbound
+[link-tests]: https://github.com/mvdnbrk/postmark-inbound/actions?query=workflow%3Atests
 [link-downloads]: https://packagist.org/packages/mvdnbrk/postmark-inbound
 [link-styleci]: https://github.styleci.io/repos/102744848
 [link-author]: https://github.com/mvdnbrk
