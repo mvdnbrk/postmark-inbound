@@ -1,6 +1,6 @@
+.DS_store
+.phpunit.result.cache
 build
 composer.lock
-vendor
-.DS_store
 phpunit.xml
-.phpunit.result.cache
+vendor
