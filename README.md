@@ -148,7 +148,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/mvdnbrk/postmark-inbound/master.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/mvdnbrk/postmark-inbound.svg?style=flat-square
-[ico-styleci]: https://github.styleci.io/repos/102744848/shield?style=flat-square&branch=master
+[ico-styleci]: https://github.styleci.io/repos/102744848/shield?style=flat-square&branch=main
 
 [link-packagist]: https://packagist.org/packages/mvdnbrk/postmark-inbound
 [link-travis]: https://travis-ci.org/mvdnbrk/postmark-inbound
