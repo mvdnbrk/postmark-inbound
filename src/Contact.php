@@ -6,47 +6,33 @@ class Contact
 {
     /**
      * E-mail address of the contact.
-     *
-     * @var string
      */
-    public $email;
+    public ?string $email;
 
     /**
      * Name of the contact.
-     *
-     * @var string
      */
-    public $name;
+    public string $name;
 
     /**
      * Mailbox hash.
-     *
-     * @var string
      */
-    public $mailboxHash;
+    public ?string $mailboxHash;
 
     /**
      * Full address of the contact (i.e. John Doe <john@example.com>).
-     *
-     * @var string
      */
-    public $full;
+    public string $full;
 
     /**
      * Create a new contact.
-     *
-     * @param string $name
-     * @param string $email
-     * @param string|null $mailboxHash
      */
-    public function __construct($name, $email, $mailboxHash = null)
+    public function __construct(?string $name, ?string $email, ?string $mailboxHash = null)
     {
-        $this->name = trim($name, ' "\'');
+        $this->name = trim((string) $name, ' "\'');
 
-        $this->email = collect(explode(' ', $email))
-            ->filter(function ($value) {
-                return strpos($value, '@') !== false;
-            })
+        $this->email = collect(explode(' ', (string) $email))
+            ->filter(fn (string $value): bool => str_contains($value, '@'))
             ->first();
 
         $this->mailboxHash = $mailboxHash;

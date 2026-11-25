@@ -6,48 +6,33 @@ class Attachment
 {
     /**
      * Name of the attachment.
-     *
-     * @var string
      */
-    public $name;
+    public ?string $name;
 
     /**
      * The content id of the attachment.
-     *
-     * @var string
      */
-    public $contentId;
+    public ?string $contentId;
 
     /**
      * The content type of the attachment.
-     *
-     * @var string
      */
-    public $contentType;
+    public ?string $contentType;
 
     /**
      * The content length of the attachment.
-     *
-     * @var int
      */
-    public $contentLength;
+    public ?int $contentLength;
 
     /**
      * Base64 encoded content of the attachment.
-     *
-     * @var mixed
      */
-    protected $content;
+    protected ?string $content;
 
     /**
      * Create a new attachment.
-     *
-     * @param string $name
-     * @param string $contentType
-     * @param int $contentLength
-     * @param mixed $content
      */
-    public function __construct($name, $contentId, $contentType, $contentLength, $content)
+    public function __construct(?string $name, ?string $contentId, ?string $contentType, ?int $contentLength, ?string $content)
     {
         $this->name = $name;
         $this->contentId = $contentId;
@@ -57,12 +42,10 @@ class Attachment
     }
 
     /**
-     * base64 decoded content of the attachment.
-     *
-     * @return mixed
+     * Base64 decoded content of the attachment.
      */
-    public function content()
+    public function content(): string
     {
-        return base64_decode(chunk_split($this->content));
+        return (string) base64_decode(chunk_split((string) $this->content));
     }
 }
