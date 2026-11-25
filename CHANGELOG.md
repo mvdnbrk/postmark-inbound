@@ -4,7 +4,7 @@ All notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
-## [v3.0.0] - Unreleased
+## [v3.0.0] - 2026-11-25
 
 ### Added
 - Added support for PHP 8.2, 8.3, 8.4 and 8.5.
