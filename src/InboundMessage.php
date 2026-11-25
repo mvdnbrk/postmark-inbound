@@ -9,11 +9,11 @@ use Mvdnbrk\Postmark\Support\PostmarkDate;
  * API to process Postmark Inbound Webhooks.
  *
  * @property-read \Mvdnbrk\Postmark\Contact $from
- * @property-read \Tightenco\Collect\Support\Collection $attachments
- * @property-read \Tightenco\Collect\Support\Collection $bcc
- * @property-read \Tightenco\Collect\Support\Collection $cc
- * @property-read \Tightenco\Collect\Support\Collection $headers
- * @property-read \Tightenco\Collect\Support\Collection $to
+ * @property-read \Illuminate\Support\Collection $attachments
+ * @property-read \Illuminate\Support\Collection $bcc
+ * @property-read \Illuminate\Support\Collection $cc
+ * @property-read \Illuminate\Support\Collection $headers
+ * @property-read \Illuminate\Support\Collection $to
  * @property-read \Mvdnbrk\Postmark\Support\PostmarkDate $date
  * @property-read bool $isSpam
  * @property-read string $htmlBody
@@ -36,7 +36,7 @@ class InboundMessage
     /**
      * Collection of the json data.
      *
-     * @var \Tightenco\Collect\Support\Collection
+     * @var \Illuminate\Support\Collection
      */
     protected $data;
 
