@@ -9,13 +9,13 @@ use Mvdnbrk\Postmark\Support\PostmarkDate;
 /**
  * API to process Postmark Inbound Webhooks.
  *
- * @property-read \Mvdnbrk\Postmark\Contact $from
- * @property-read \Illuminate\Support\Collection<int, \Mvdnbrk\Postmark\Attachment> $attachments
- * @property-read \Illuminate\Support\Collection<int, \Mvdnbrk\Postmark\Contact> $bcc
- * @property-read \Illuminate\Support\Collection<int, \Mvdnbrk\Postmark\Contact> $cc
- * @property-read \Illuminate\Support\Collection<string, string> $headers
- * @property-read \Illuminate\Support\Collection<int, \Mvdnbrk\Postmark\Contact> $to
- * @property-read \Mvdnbrk\Postmark\Support\PostmarkDate $date
+ * @property-read Contact $from
+ * @property-read Collection<int, Attachment> $attachments
+ * @property-read Collection<int, Contact> $bcc
+ * @property-read Collection<int, Contact> $cc
+ * @property-read Collection<string, string> $headers
+ * @property-read Collection<int, Contact> $to
+ * @property-read PostmarkDate $date
  * @property-read bool $isSpam
  * @property-read string $htmlBody
  * @property-read string $mailboxHash
@@ -48,7 +48,7 @@ class InboundMessage
     /**
      * Create a new InboundMessage instance.
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function __construct(?string $json = null)
     {
@@ -64,7 +64,7 @@ class InboundMessage
     /**
      * Retrieve the collection of attachments.
      *
-     * @return \Illuminate\Support\Collection<int, \Mvdnbrk\Postmark\Attachment>
+     * @return Collection<int, Attachment>
      */
     public function getAttachmentsAttribute(): Collection
     {
@@ -85,7 +85,7 @@ class InboundMessage
     /**
      * Retrieve the collection of bcc recipients.
      *
-     * @return \Illuminate\Support\Collection<int, \Mvdnbrk\Postmark\Contact>
+     * @return Collection<int, Contact>
      */
     public function getBccAttribute(): Collection
     {
@@ -95,7 +95,7 @@ class InboundMessage
     /**
      * Retrieve the collection of cc recipients.
      *
-     * @return \Illuminate\Support\Collection<int, \Mvdnbrk\Postmark\Contact>
+     * @return Collection<int, Contact>
      */
     public function getCcAttribute(): Collection
     {
@@ -115,7 +115,7 @@ class InboundMessage
     /**
      * Retrieve the collection of recipient contacts.
      *
-     * @return \Illuminate\Support\Collection<int, \Mvdnbrk\Postmark\Contact>
+     * @return Collection<int, Contact>
      */
     public function getToAttribute(): Collection
     {
@@ -149,7 +149,7 @@ class InboundMessage
     /**
      * Retrieve the collection of headers.
      *
-     * @return \Illuminate\Support\Collection<string, string>
+     * @return Collection<string, string>
      */
     public function getHeadersAttribute(): Collection
     {
@@ -202,7 +202,7 @@ class InboundMessage
     /**
      * Parse contacts and return a collection of contacts.
      *
-     * @return \Illuminate\Support\Collection<int, \Mvdnbrk\Postmark\Contact>
+     * @return Collection<int, Contact>
      */
     protected function parseContacts(?array $contacts = []): Collection
     {
@@ -217,7 +217,7 @@ class InboundMessage
     /**
      * Dynamically retrieve attributes on the data model.
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function __get(string $key): mixed
     {

@@ -19,11 +19,17 @@ class PostmarkDate extends DateTime
      *  Constants for numeric representation of the day of the week.
      */
     public const SUNDAY = 0;
+
     public const MONDAY = 1;
+
     public const TUESDAY = 2;
+
     public const WEDNESDAY = 3;
+
     public const THURSDAY = 4;
+
     public const FRIDAY = 5;
+
     public const SATURDAY = 6;
 
     /**
@@ -54,7 +60,7 @@ class PostmarkDate extends DateTime
     /**
      * Get a collection of the textual respresentation of a day as three letters.
      *
-     * @return \Illuminate\Support\Collection<int, string>
+     * @return Collection<int, string>
      */
     public static function getAbbreviatedDaysCollection(): Collection
     {
@@ -85,13 +91,13 @@ class PostmarkDate extends DateTime
             //
         }
 
-        return new static();
+        return new static;
     }
 
     /**
      * Dynamically retrieve attributes on the data model.
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function __get(string $key): mixed
     {
