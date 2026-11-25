@@ -4,6 +4,22 @@ All notable changes to `postmark-inbound` will be documented in this file.
 
 ## [Unreleased]
 
+## [v3.0.0] - Unreleased
+
+### Added
+- Added support for PHP 8.2, 8.3, 8.4 and 8.5.
+- Added support for PHPUnit 11 and 12.
+- Added native parameter, return and property types.
+- Documented the `MessageStream` field (`$inbound->messageStream`).
+
+### Changed
+- Requires PHP 8.2 or higher.
+- Replaced the abandoned `tightenco/collect` with `illuminate/collections` 12 or 13. Collections are now instances of `Illuminate\Support\Collection` instead of `Tightenco\Collect\Support\Collection`.
+- Vulnerabilities are reported through GitHub's security advisories.
+
+### Removed
+- Dropped support for PHP 7.1 to 8.1.
+
 ## [v2.4.0] - 2021-03-02
 
 ### Added
@@ -170,7 +186,8 @@ All notable changes to `postmark-inbound` will be documented in this file.
 - Code style fixes. [`7c8eb86`](https://github.com/mvdnbrk/postmark-inbound/commit/7c8eb86cbf9719fbb568160decf4ae8dc735ce98)
 - PHPUnit minimum version set to 5.4.3. [`c2331a4`](https://github.com/mvdnbrk/postmark-inbound/commit/c2331a48557ef88f67b2a7df1176cccf05a2b3e8)
 
-[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.4.0...HEAD
+[Unreleased]: https://github.com/mvdnbrk/postmark-inbound/compare/v3.0.0...HEAD
+[v3.0.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.4.0...v3.0.0
 [v2.4.0]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.10...v2.4.0
 [v2.3.10]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.9...v2.3.10
 [v2.3.9]: https://github.com/mvdnbrk/postmark-inbound/compare/v2.3.8...v2.3.9
