@@ -3,13 +3,14 @@
 namespace Mvdnbrk\Postmark\Tests\Support;
 
 use Mvdnbrk\Postmark\Support\PostmarkDate;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Tightenco\Collect\Support\Collection;
 
 class PostmarkDateTest extends TestCase
 {
-    /** @test */
-    public function can_get_abbreviated_days_as_array()
+    #[Test]
+    public function can_get_abbreviated_days_as_array(): void
     {
         $this->assertEquals([
             0 => 'Sun',
@@ -22,8 +23,8 @@ class PostmarkDateTest extends TestCase
         ], PostmarkDate::getAbbreviatedDays());
     }
 
-    /** @test */
-    public function can_get_abbreviated_days_as_collection()
+    #[Test]
+    public function can_get_abbreviated_days_as_collection(): void
     {
         $this->assertInstanceOf(Collection::class, PostmarkDate::getAbbreviatedDaysCollection());
         $this->assertEquals([
@@ -37,8 +38,8 @@ class PostmarkDateTest extends TestCase
         ], PostmarkDate::getAbbreviatedDaysCollection()->toArray());
     }
 
-    /** @test */
-    public function can_parse_different_date_values_from_postmarks_date_field()
+    #[Test]
+    public function can_parse_different_date_values_from_postmarks_date_field(): void
     {
         $this->assertSame('2018-04-27 12:00:00 +0800', PostmarkDate::parse('27 Apr 2018 12:00:00 +0800')->format('Y-m-d H:i:s O'));
         $this->assertSame('2018-04-27 19:00:00 +0200', PostmarkDate::parse('27 Apr 2018 19:00:00 +0200')->format('Y-m-d H:i:s O'));
@@ -48,38 +49,38 @@ class PostmarkDateTest extends TestCase
         $this->assertSame('2017-12-05 19:00:00 +0100', PostmarkDate::parse('Tue, 5 Dec 2017 19:00:00 +0100 (West-Europe (stand')->format('Y-m-d H:i:s O'));
     }
 
-    /** @test */
-    public function can_get_a_date_in_utc_timezone()
+    #[Test]
+    public function can_get_a_date_in_utc_timezone(): void
     {
         $date = PostmarkDate::parse('27 Apr 2018 19:00:00 +0200');
         $this->assertTrue($date->inUtcTimezone()->isUtc);
         $this->assertSame('17:00', $date->inUtcTimezone()->format('H:i'));
     }
 
-    /** @test */
-    public function can_determine_if_the_instance_is_in_the_utc_timezone()
+    #[Test]
+    public function can_determine_if_the_instance_is_in_the_utc_timezone(): void
     {
         $this->assertTrue(PostmarkDate::parse('27 Apr 2018 12:00:00 +0000')->isUtc);
         $this->assertFalse(PostmarkDate::parse('27 Apr 2018 12:00:00 +0200')->isUtc);
     }
 
-    /** @test */
-    public function can_determine_the_current_timezone_of_the_instance()
+    #[Test]
+    public function can_determine_the_current_timezone_of_the_instance(): void
     {
         $this->assertSame('+00:00', PostmarkDate::parse('27 Apr 2018 12:00:00 +0000')->timezone);
         $this->assertSame('+02:00', PostmarkDate::parse('27 Apr 2018 12:00:00 +0200')->timezone);
     }
 
-    /** @test */
-    public function getting_unknown_getter_throws_exception()
+    #[Test]
+    public function getting_unknown_getter_throws_exception(): void
     {
         $this->expectException(\InvalidArgumentException::class);
         $date = new PostmarkDate('now');
         $date->doesNotExist;
     }
 
-    /** @test */
-    public function if_it_failes_to_parse_a_time_string_it_should_return_the_current_date_time()
+    #[Test]
+    public function if_it_failes_to_parse_a_time_string_it_should_return_the_current_date_time(): void
     {
         $date = PostmarkDate::parse('21 May 2018 27:03:20 +0700');
 
