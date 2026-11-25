@@ -3,12 +3,13 @@
 namespace Mvdnbrk\Postmark\Tests;
 
 use Mvdnbrk\Postmark\Contact;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class ContactTest extends TestCase
 {
-    /** @test */
-    public function contact_is_constructed()
+    #[Test]
+    public function contact_is_constructed(): void
     {
         $c = new Contact('John', 'john@example.com', 'hash');
         $this->assertEquals('John', $c->name);
@@ -17,8 +18,8 @@ class ContactTest extends TestCase
         $this->assertEquals('John <john@example.com>', $c->full);
     }
 
-    /** @test */
-    public function email_address_with_leading_or_trailing_spaces_is_trimmed()
+    #[Test]
+    public function email_address_with_leading_or_trailing_spaces_is_trimmed(): void
     {
         $c = new Contact('John', '    john@example.com', 'hash');
         $this->assertEquals('john@example.com', $c->email);
@@ -30,8 +31,8 @@ class ContactTest extends TestCase
         $this->assertEquals('john@example.com', $c->email);
     }
 
-    /** @test */
-    public function name_with_leading_or_trailing_spaces_is_trimmed()
+    #[Test]
+    public function name_with_leading_or_trailing_spaces_is_trimmed(): void
     {
         $c = new Contact('    John', 'john@example.com', 'hash');
         $this->assertEquals('John', $c->name);
@@ -43,15 +44,15 @@ class ContactTest extends TestCase
         $this->assertEquals('John', $c->name);
     }
 
-    /** @test */
-    public function email_address_with_non_allowed_prefix_is_stripped_off()
+    #[Test]
+    public function email_address_with_non_allowed_prefix_is_stripped_off(): void
     {
         $c = new Contact('John', ' ^   john@example.com', 'hash');
         $this->assertEquals('john@example.com', $c->email);
     }
 
-    /** @test */
-    public function a_quoted_name_should_be_unquoted()
+    #[Test]
+    public function a_quoted_name_should_be_unquoted(): void
     {
         $c = new Contact('"John"', 'john@example.com', 'hash');
         $this->assertEquals('John', $c->name);
@@ -62,8 +63,8 @@ class ContactTest extends TestCase
         $this->assertEquals('John <john@example.com>', $c->full);
     }
 
-    /** @test */
-    public function hash_is_optional()
+    #[Test]
+    public function hash_is_optional(): void
     {
         $c = new Contact('John', 'john@example.com');
         $this->assertEquals('John', $c->name);

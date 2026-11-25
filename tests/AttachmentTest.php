@@ -3,12 +3,13 @@
 namespace Mvdnbrk\Postmark\Tests;
 
 use Mvdnbrk\Postmark\Attachment;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class AttachmentTest extends TestCase
 {
-    /** @test */
-    public function attachment_is_constructed()
+    #[Test]
+    public function attachment_is_constructed(): void
     {
         $a = new Attachment('test.txt', 'some-unqiue-id', 'plain/text', 8, 'dGVzdA==');
         $this->assertEquals('test.txt', $a->name);

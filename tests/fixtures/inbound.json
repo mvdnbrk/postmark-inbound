@@ -1,6 +1,7 @@
 {
   "From": "myUser@theirDomain.com",
   "FromName": "My User",
+  "MessageStream": "inbound",
   "FromFull": {
     "Email": "john@example.com",
     "Name": "John Doe",

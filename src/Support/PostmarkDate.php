@@ -3,6 +3,9 @@
 namespace Mvdnbrk\Postmark\Support;
 
 use DateTime;
+use Exception;
+use Illuminate\Support\Collection;
+use InvalidArgumentException;
 
 /**
  * This file is part of the Postmark Inbound package.
@@ -15,20 +18,20 @@ class PostmarkDate extends DateTime
     /**
      *  Constants for numeric representation of the day of the week.
      */
-    const SUNDAY = 0;
-    const MONDAY = 1;
-    const TUESDAY = 2;
-    const WEDNESDAY = 3;
-    const THURSDAY = 4;
-    const FRIDAY = 5;
-    const SATURDAY = 6;
+    public const SUNDAY = 0;
+    public const MONDAY = 1;
+    public const TUESDAY = 2;
+    public const WEDNESDAY = 3;
+    public const THURSDAY = 4;
+    public const FRIDAY = 5;
+    public const SATURDAY = 6;
 
     /**
      * Textual representation of a day, three letters.
      *
-     * @var array
+     * @var array<int, string>
      */
-    protected static $days_abbreviated = [
+    protected static array $days_abbreviated = [
         self::SUNDAY => 'Sun',
         self::MONDAY => 'Mon',
         self::TUESDAY => 'Tue',
@@ -41,9 +44,9 @@ class PostmarkDate extends DateTime
     /**
      * Get the textual respresentation of a day as three letters.
      *
-     * @return array
+     * @return array<int, string>
      */
-    public static function getAbbreviatedDays()
+    public static function getAbbreviatedDays(): array
     {
         return static::$days_abbreviated;
     }
@@ -51,41 +54,34 @@ class PostmarkDate extends DateTime
     /**
      * Get a collection of the textual respresentation of a day as three letters.
      *
-     * @return \Mvdnbrk\Postmark\Support\Collection
+     * @return \Illuminate\Support\Collection<int, string>
      */
-    public static function getAbbreviatedDaysCollection()
+    public static function getAbbreviatedDaysCollection(): Collection
     {
         return collect(static::getAbbreviatedDays());
     }
 
     /**
      * Set the instance to UTC timezone.
-     *
-     * @return static
      */
-    public function inUtcTimezone()
+    public function inUtcTimezone(): static
     {
         return parent::setTimezone(timezone_open('UTC'));
     }
 
     /**
      * Create a new instance from a string.
-     *
-     * @param  string $date
-     * @return static
      */
-    public static function parse($date)
+    public static function parse(?string $date): static
     {
         try {
             return new static(
-                collect(explode(' ', $date))
-                ->reject(function ($value) {
-                    return self::getAbbreviatedDaysCollection()->contains(trim($value, ','));
-                })
-                ->take(5)
-                ->implode(' ')
+                collect(explode(' ', (string) $date))
+                    ->reject(fn (string $value): bool => self::getAbbreviatedDaysCollection()->contains(trim($value, ',')))
+                    ->take(5)
+                    ->implode(' ')
             );
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             //
         }
 
@@ -95,19 +91,14 @@ class PostmarkDate extends DateTime
     /**
      * Dynamically retrieve attributes on the data model.
      *
-     * @param  string  $key
      * @throws \InvalidArgumentException
-     * @return mixed
      */
-    public function __get($key)
+    public function __get(string $key): mixed
     {
-        switch (true) {
-            case $key === 'isUtc':
-                return $this->getOffset() === 0;
-            case $key === 'timezone':
-                return $this->getTimezone()->getName();
-            default:
-                throw new \InvalidArgumentException(sprintf("Unknown getter '%s'", $key));
-        }
+        return match ($key) {
+            'isUtc' => $this->getOffset() === 0,
+            'timezone' => $this->getTimezone()->getName(),
+            default => throw new InvalidArgumentException(sprintf("Unknown getter '%s'", $key)),
+        };
     }
 }
