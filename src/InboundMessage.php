@@ -21,6 +21,7 @@ use Mvdnbrk\Postmark\Support\PostmarkDate;
  * @property-read string $mailboxHash
  * @property-read string $messageId MessageID assigned by Postmark.
  * @property-read string|null $messageIdFromHeaders Message-ID value from headers.
+ * @property-read string $messageStream
  * @property-read string|null $originalDate
  * @property-read string $originalRecipient
  * @property-read string $replyTo

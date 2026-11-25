@@ -138,6 +138,18 @@ class InboundMessageTest extends TestCase
     }
 
     #[Test]
+    public function message_has_a_message_stream(): void
+    {
+        $this->assertEquals('inbound', $this->message->messageStream);
+    }
+
+    #[Test]
+    public function message_has_a_mailbox_hash(): void
+    {
+        $this->assertEquals('ahoy', $this->message->mailboxHash);
+    }
+
+    #[Test]
     public function message_has_an_original_recipient(): void
     {
         $this->assertEquals('1234+ahoy@inbound.postmarkapp.com', $this->message->originalRecipient);
