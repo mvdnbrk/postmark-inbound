@@ -2,6 +2,7 @@
 
 # postmark-inbound
 
+![PHP version][ico-php-version]
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Tests][ico-tests]][link-tests]
@@ -10,17 +11,21 @@
 
 Simple API to process Postmark Inbound Webhooks.
 
+## Requirements
+
+- PHP 8.2 or higher
+
 ## Installation
 
 You can install the package via composer:
 
-``` bash
+```bash
 composer require mvdnbrk/postmark-inbound
 ```
 
 ## Usage
 
-``` php
+```php
 $inbound = new \Mvdnbrk\Postmark\InboundMessage(file_get_contents('php://input'));
 
 $inbound->from->name;                   // John Doe
@@ -28,6 +33,8 @@ $inbound->from->email;                  // john@example.com
 $inbound->from->full;                   // John Doe <john@example.com>
 
 $inbound->tag;
+$inbound->mailboxHash;
+$inbound->messageStream;                // inbound
 $inbound->replyTo;
 $inbound->textBody;
 $inbound->htmlBody;
@@ -79,7 +86,7 @@ $inbound->bcc->each(function($contact) {
 ```
 
 Get the first recipient:
-```
+```php
 $inbound->to->first();
 ```
 
@@ -123,7 +130,17 @@ $inbound->headers->get('X-Spam-Status');
 ...
 ```
 
-## Change log
+Any other field in the payload can be read by its camelCased name, for example `$inbound->fromName`.
+
+The collections are instances of `Illuminate\Support\Collection`.
+
+## Testing
+
+```bash
+composer test
+```
+
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
@@ -144,9 +161,10 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
+[ico-php-version]: https://img.shields.io/packagist/php-v/mvdnbrk/postmark-inbound?style=flat-square
 [ico-version]: https://img.shields.io/packagist/v/mvdnbrk/postmark-inbound.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-tests]: https://img.shields.io/github/workflow/status/mvdnbrk/postmark-inbound/tests/main?label=tests&style=flat-square
+[ico-tests]: https://img.shields.io/github/actions/workflow/status/mvdnbrk/postmark-inbound/tests.yml?branch=main&label=tests&style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/mvdnbrk/postmark-inbound.svg?style=flat-square
 [ico-styleci]: https://github.styleci.io/repos/102744848/shield?style=flat-square&branch=main
 
